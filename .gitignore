@@ -1,3 +1,4 @@
 stackoverflow.csproj
 log.txt
-
+.idea/
+.idea/*
