@@ -1,0 +1,61 @@
+﻿@{
+    Layout = "";
+}
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+    <link rel="stylesheet" href="/css/site.css"/>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Stack Overflow</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="/AddQuestion/">Ask Question</a></li>
+        </ul>
+        <div class="navbar-form navbar-left">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/SignUp/"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+            <li><a href="/Login/"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+        </ul>
+    </div>
+</nav>
+
+<div class="col-lg-1">
+</div>
+<div class="col-lg-10">
+    <hr/>
+    <div class="col-lg-1 question-card">
+        0 <br>
+        votes
+    </div>
+    <div class="col-lg-1 question-card">
+        0 <br>
+        answers
+    </div>
+    <div class="col-lg-1 question-card">
+        0 <br>
+        views
+    </div>
+    <div class="col-lg-9">
+        <h3><a href="/Question/Index/1" class="question-title">How do I operate on a DataFrame with a Series for every column</a></h3>
+        <span class="tag">python</span>
+        <span class="tag">pandas</span>
+    </div>
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/js/site.js"></script>
+</body>
+</html>

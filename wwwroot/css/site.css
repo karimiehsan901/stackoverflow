@@ -1,0 +1,42 @@
+﻿.question-title {
+    /*font-size: 200%;*/
+}
+.tag {
+    font-size: 12px;
+    padding: 0.4em 0.5em;
+    margin: 2px 2px 2px 0;
+    line-height: 1;
+    white-space: nowrap;
+    text-align: center;
+    color: #39739d;
+    background: #e1ecf4;
+    border-radius: 1px;
+}
+.question-card {
+    margin-top: 20px;
+    height: 38px;
+    min-width: 38px;
+    color: #848d95;
+    padding: 7px 6px;
+    text-align: center;
+    box-sizing: inherit;
+    border: 0;
+    font: inherit;
+    vertical-align: baseline;
+    cursor: pointer;
+}
+.question-likes {
+    font-size: 200%;
+    text-align: center;
+    
+}
+.center-align {
+    text-align: center;
+}
+.comment {
+    font-size: 75%;
+}
+.submit-btn {
+    background-color: #54a2ab;
+    color: #f2fff8;
+}
