@@ -22,14 +22,14 @@ namespace stackoverflow.Controllers
                 {
                     conn.Open();
                     var checkExist = new MySqlCommand("select id from main_user where username=\'" + username + "\'" + "or email=\'" + email + "\'", conn);
-                    MySqlDataReader dr = checkExist.ExecuteReader();
+                    var dr = checkExist.ExecuteReader();
                     if (!dr.Read())
                     {
                         dr.Close();
                         var cmd = new MySqlCommand("insert into main_user (name, username, password, email) values (\'" + name + "\',\'" + username + "\',\'" + password + "\',\'" + email + "\')", conn);
                         cmd.ExecuteNonQuery();
-                        var sessionid = HttpContext.Session.Id;
-                        cmd = new MySqlCommand("insert into main_session (session_id, session_key, value) values (\'" + sessionid + "\',\'username\',\'" + username + "\')", conn);
+                        var sessionId = HttpContext.Session.Id;
+                        cmd = new MySqlCommand("insert into main_session (session_id, session_key, value) values (\'" + sessionId + "\',\'username\',\'" + username + "\')", conn);
                         cmd.ExecuteNonQuery();
                     }
                     else

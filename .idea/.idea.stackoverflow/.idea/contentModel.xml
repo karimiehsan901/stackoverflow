@@ -4,6 +4,7 @@
     <e p="$USER_HOME$/.Rider2018.2/system/extResources" t="IncludeRecursive" />
     <e p="$USER_HOME$/.Rider2018.2/system/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_stackoverflow.1267297045.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p=".gitignore" t="Include" />
       <e p="Controllers" t="Include">
         <e p="AddQuestionController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
@@ -22,6 +23,7 @@
       <e p="Properties" t="Include">
         <e p="launchSettings.json" t="Include" />
       </e>
+      <e p="README.md" t="Include" />
       <e p="Startup.cs" t="Include" />
       <e p="Views" t="Include">
         <e p="AddQuestion" t="Include">

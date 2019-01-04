@@ -2,3 +2,5 @@ stackoverflow.csproj
 log.txt
 .idea/
 .idea/*
+obj/*
+bin/*
