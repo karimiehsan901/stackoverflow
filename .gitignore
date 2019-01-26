@@ -1,0 +1,9 @@
+stackoverflow.csproj
+askew.csproj
+log.txt
+.idea/
+.idea/*
+obj/*
+bin/*
+obj
+bin
