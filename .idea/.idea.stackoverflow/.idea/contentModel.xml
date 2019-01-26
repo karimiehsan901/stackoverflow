@@ -5,6 +5,27 @@
     <e p="$USER_HOME$/.Rider2018.2/system/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_stackoverflow.1267297045.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p=".gitignore" t="Include" />
+      <e p=".vs" t="Include">
+        <e p="askew" t="Include">
+          <e p="DesignTimeBuild" t="Include">
+            <e p=".dtbcache" t="Include" />
+          </e>
+          <e p="v15" t="Include">
+            <e p=".suo" t="Include" />
+            <e p="Server" t="Include">
+              <e p="sqlite3" t="Include">
+                <e p="db.lock" t="Include" />
+                <e p="storage.ide" t="Include" />
+                <e p="storage.ide-shm" t="Include" />
+                <e p="storage.ide-wal" t="Include" />
+              </e>
+            </e>
+          </e>
+        </e>
+        <e p="config" t="Include">
+          <e p="applicationhost.config" t="Include" />
+        </e>
+      </e>
       <e p="Controllers" t="Include">
         <e p="AddQuestionController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
@@ -58,6 +79,7 @@
       </e>
       <e p="appsettings.Development.json" t="Include" />
       <e p="appsettings.json" t="Include" />
+      <e p="b.txt" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
       <e p="log.txt" t="Include" />
       <e p="obj" t="ExcludeRecursive">
@@ -69,16 +91,24 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="stackoverflow.csproj" t="IncludeRecursive" />
+      <e p="testMasoumeh.txt" t="Include" />
       <e p="wwwroot" t="Include">
         <e p="css" t="Include">
           <e p="site.css" t="Include" />
         </e>
         <e p="favicon.ico" t="Include" />
+        <e p="images" t="Include">
+          <e p="banner1.svg" t="Include" />
+          <e p="banner2.svg" t="Include" />
+          <e p="banner3.svg" t="Include" />
+        </e>
         <e p="js" t="Include">
           <e p="site.js" t="Include" />
+          <e p="site.min.js" t="Include" />
         </e>
         <e p="lib" t="Include">
           <e p="bootstrap" t="Include">
+            <e p=".bower.json" t="Include" />
             <e p="LICENSE" t="Include" />
             <e p="dist" t="Include">
               <e p="css" t="Include">
@@ -90,10 +120,21 @@
                 <e p="bootstrap-reboot.css.map" t="Include" />
                 <e p="bootstrap-reboot.min.css" t="Include" />
                 <e p="bootstrap-reboot.min.css.map" t="Include" />
+                <e p="bootstrap-theme.css" t="Include" />
+                <e p="bootstrap-theme.css.map" t="Include" />
+                <e p="bootstrap-theme.min.css" t="Include" />
+                <e p="bootstrap-theme.min.css.map" t="Include" />
                 <e p="bootstrap.css" t="Include" />
                 <e p="bootstrap.css.map" t="Include" />
                 <e p="bootstrap.min.css" t="Include" />
                 <e p="bootstrap.min.css.map" t="Include" />
+              </e>
+              <e p="fonts" t="Include">
+                <e p="glyphicons-halflings-regular.eot" t="Include" />
+                <e p="glyphicons-halflings-regular.svg" t="Include" />
+                <e p="glyphicons-halflings-regular.ttf" t="Include" />
+                <e p="glyphicons-halflings-regular.woff" t="Include" />
+                <e p="glyphicons-halflings-regular.woff2" t="Include" />
               </e>
               <e p="js" t="Include">
                 <e p="bootstrap.bundle.js" t="Include" />
@@ -104,10 +145,12 @@
                 <e p="bootstrap.js.map" t="Include" />
                 <e p="bootstrap.min.js" t="Include" />
                 <e p="bootstrap.min.js.map" t="Include" />
+                <e p="npm.js" t="Include" />
               </e>
             </e>
           </e>
           <e p="jquery" t="Include">
+            <e p=".bower.json" t="Include" />
             <e p="LICENSE.txt" t="Include" />
             <e p="dist" t="Include">
               <e p="jquery.js" t="Include" />
@@ -116,6 +159,7 @@
             </e>
           </e>
           <e p="jquery-validation" t="Include">
+            <e p=".bower.json" t="Include" />
             <e p="LICENSE.md" t="Include" />
             <e p="dist" t="Include">
               <e p="additional-methods.js" t="Include" />
@@ -125,6 +169,7 @@
             </e>
           </e>
           <e p="jquery-validation-unobtrusive" t="Include">
+            <e p=".bower.json" t="Include" />
             <e p="LICENSE.txt" t="Include" />
             <e p="jquery.validate.unobtrusive.js" t="Include" />
             <e p="jquery.validate.unobtrusive.min.js" t="Include" />
