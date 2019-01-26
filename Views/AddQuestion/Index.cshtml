@@ -1,0 +1,59 @@
+﻿@{
+    Layout = "";
+}
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="/css/site.css"/>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"/>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="/">Stack Overflow</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li><a href="/">Home</a></li>
+            <li class="active"><a href="#">Ask Question</a></li>
+        </ul>
+        <div class="navbar-form navbar-left" action="/action_page.php">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            <li><a href="/SignUp/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+            <li><a href="/Login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+        </ul>
+    </div>
+</nav>
+<div class="col-lg-1"></div>
+<div class="col-lg-10">
+    <h1>Ask a question</h1><br/>
+    
+    <form>
+        <div class="form-group">
+            <label for="title">Title</label>
+            <input type="text" class="form-control" id="title" name="title" placeholder="What's your programming question? Be Specific."/>
+        </div>
+        <div class="form-group">
+            <label for="body">Body</label>
+            <textarea class="form-control" id="body" name="body" rows="10">
+        </textarea>
+        </div>
+        <div class="form-group">
+            <label for="tags">Tags</label>
+            <input type="text" class="form-control" id="tags" name="tags" placeholder="e.g (arrays c# wpf)"/>
+        </div>
+        <br/>
+        <br/>
+        <button type="submit" class="btn btn-primary">Post Your Question</button>
+    </form>
+</div>
+
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="/js/site.js"></script>
+</body>
+</html>
