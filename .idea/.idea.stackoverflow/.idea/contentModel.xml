@@ -5,27 +5,6 @@
     <e p="$USER_HOME$/.Rider2018.2/system/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_stackoverflow.1267297045.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p=".gitignore" t="Include" />
-      <e p=".vs" t="Include">
-        <e p="askew" t="Include">
-          <e p="DesignTimeBuild" t="Include">
-            <e p=".dtbcache" t="Include" />
-          </e>
-          <e p="v15" t="Include">
-            <e p=".suo" t="Include" />
-            <e p="Server" t="Include">
-              <e p="sqlite3" t="Include">
-                <e p="db.lock" t="Include" />
-                <e p="storage.ide" t="Include" />
-                <e p="storage.ide-shm" t="Include" />
-                <e p="storage.ide-wal" t="Include" />
-              </e>
-            </e>
-          </e>
-        </e>
-        <e p="config" t="Include">
-          <e p="applicationhost.config" t="Include" />
-        </e>
-      </e>
       <e p="Controllers" t="Include">
         <e p="AddQuestionController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
@@ -92,9 +71,11 @@
       <e p="packages" t="ExcludeRecursive" />
       <e p="stackoverflow.csproj" t="IncludeRecursive" />
       <e p="testMasoumeh.txt" t="Include" />
+      <e p="test_tara.txt" t="Include" />
       <e p="wwwroot" t="Include">
         <e p="css" t="Include">
           <e p="site.css" t="Include" />
+          <e p="site.min.css" t="Include" />
         </e>
         <e p="favicon.ico" t="Include" />
         <e p="images" t="Include">
