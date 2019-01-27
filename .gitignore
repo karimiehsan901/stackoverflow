@@ -5,5 +5,5 @@ log.txt
 .idea/*
 obj/*
 bin/*
-obj
+obj/project.assets.json
 bin
