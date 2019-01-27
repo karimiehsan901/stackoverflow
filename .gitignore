@@ -1,4 +1,5 @@
 stackoverflow.csproj
+connection_string.txt
 askew.csproj
 log.txt
 .idea/
