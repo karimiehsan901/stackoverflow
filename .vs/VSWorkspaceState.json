@@ -1,15 +1,6 @@
 {
   "ExpandedNodes": [
-<<<<<<< HEAD
     ""
   ],
-=======
-    "",
-    "\\Controllers",
-    "\\Logic",
-    "\\Models"
-  ],
-  "SelectedNode": "\\Controllers\\AddQuestionController.cs",
->>>>>>> 8d8f9651d78715622250b48a96f9a4faf80eb3c3
   "PreviewInSolutionExplorer": false
 }
