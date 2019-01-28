@@ -19,7 +19,6 @@
             <e p=".suo" t="Include" />
             <e p="Server" t="Include">
               <e p="sqlite3" t="Include">
-                <e p="db.lock" t="Include" />
                 <e p="storage.ide" t="Include" />
                 <e p="storage.ide-shm" t="Include" />
                 <e p="storage.ide-wal" t="Include" />

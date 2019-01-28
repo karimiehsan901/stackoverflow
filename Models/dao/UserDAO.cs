@@ -39,6 +39,7 @@ namespace stackoverflow.Models.dao
                 var email = (string) rd["email"];
                 var name = (string) rd["password"];
                 var user = new User(id, name, username, password, email);
+                rd.Close();
                 return user;
             }
             rd.Close();
@@ -52,6 +53,23 @@ namespace stackoverflow.Models.dao
             var exists = rd.Read();
             rd.Close();
             return exists;
+        }
+
+        public User GetUserByUsernameAndPassword(string username, string password)
+        {
+            var cmd = new MySqlCommand("select * from main_user where username=\'" + username + "\' and email=\'" + password + "\'", DBConnection.Instance().MySqlConnection);
+            var rd = cmd.ExecuteReader();
+            if (rd.Read())
+            {
+                var id = (int) rd["id"];
+                var email = (string) rd["email"];
+                var name = (string) rd["password"];
+                var user = new User(id, name, username, password, email);
+                rd.Close();
+                return user;
+            }
+            rd.Close();
+            return null;
         }
     }
 }
