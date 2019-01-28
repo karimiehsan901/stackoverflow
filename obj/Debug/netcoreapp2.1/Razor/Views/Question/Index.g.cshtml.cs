@@ -60,7 +60,7 @@ using stackoverflow.Models;
             WriteLiteral("<html>\n");
             EndContext();
             BeginContext(29, 289, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "139566ed320d4a959f8bfed8b9eeb91e", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "1e65ee0c3ff741199e3ff47e0a77593c", async() => {
                 BeginContext(35, 276, true);
                 WriteLiteral(@"
     <link rel=""stylesheet"" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css""/>
@@ -84,7 +84,7 @@ using stackoverflow.Models;
             WriteLiteral("\n");
             EndContext();
             BeginContext(319, 4093, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "251ebb2661fb482babaa9a0c894e5533", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "31665c9d250d409c9199251a6bdc0b18", async() => {
                 BeginContext(325, 4080, true);
                 WriteLiteral(@"
 <nav class=""navbar navbar-inverse"">
