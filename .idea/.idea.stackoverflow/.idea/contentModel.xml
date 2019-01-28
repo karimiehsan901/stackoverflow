@@ -12,8 +12,18 @@
           </e>
         </e>
         <e p="stackoverflow" t="Include">
+          <e p="DesignTimeBuild" t="Include">
+            <e p=".dtbcache" t="Include" />
+          </e>
           <e p="v15" t="Include">
             <e p=".suo" t="Include" />
+            <e p="Server" t="Include">
+              <e p="sqlite3" t="Include">
+                <e p="storage.ide" t="Include" />
+                <e p="storage.ide-shm" t="Include" />
+                <e p="storage.ide-wal" t="Include" />
+              </e>
+            </e>
           </e>
         </e>
       </e>

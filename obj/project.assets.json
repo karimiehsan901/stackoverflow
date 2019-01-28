@@ -4396,7 +4396,11 @@
       "type": "package",
       "path": "google.protobuf/3.5.1",
       "files": [
+<<<<<<< HEAD
         ".signature.p7s",
+=======
+        ".nupkg.metadata",
+>>>>>>> c27758f1202da71e51943a247dae59fce042d9d2
         "google.protobuf.3.5.1.nupkg.sha512",
         "google.protobuf.nuspec",
         "lib/net45/Google.Protobuf.dll",
@@ -5240,7 +5244,12 @@
     "Microsoft.AspNetCore.Razor.Design/2.1.1": {
       "sha512": "f8PKGcxiezL1RVqmnmrazj24Mj4KCTSXqwdotl7Lc+82h8iLV7ItxEIShTJakG7M9iw0ZuCocM0J/IhYesdQrg==",
       "type": "package",
+<<<<<<< HEAD
       "path": "microsoft.aspnetcore.razor.design/2.1.1",
+=======
+      "path": "microsoft.aspnetcore.razor.design/2.2.0",
+      "hasTools": true,
+>>>>>>> c27758f1202da71e51943a247dae59fce042d9d2
       "files": [
         ".signature.p7s",
         "build/netstandard2.0/Microsoft.AspNetCore.Razor.Design.CodeGeneration.targets",
@@ -5801,7 +5810,12 @@
     "Microsoft.EntityFrameworkCore.Tools/2.1.1": {
       "sha512": "OYHhKbFNJCSHpkLAKI9yqTx3+SZ7aHKZaCP+G5ctlL/rZm5Y37Ke00abUhp5mFEJlvEueYfOGDx/GjltEs210A==",
       "type": "package",
+<<<<<<< HEAD
       "path": "microsoft.entityframeworkcore.tools/2.1.1",
+=======
+      "path": "microsoft.entityframeworkcore.tools/2.2.0",
+      "hasTools": true,
+>>>>>>> c27758f1202da71e51943a247dae59fce042d9d2
       "files": [
         ".signature.p7s",
         "lib/netstandard2.0/_._",
