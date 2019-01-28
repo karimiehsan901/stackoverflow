@@ -22,7 +22,7 @@ namespace stackoverflow.Models.dao
 
         public void Login(string sessionId, string username)
         {
-            var cmd = new MySqlCommand("insert into main_session (session_id, session_key, value) values (" + sessionId + ", username," + username + ")", DBConnection.Instance().MySqlConnection);
+            var cmd = new MySqlCommand("insert into main_session (session_id, session_key, value) values (\'" + sessionId + "\', \'username\',\'" + username + "\')", DBConnection.Instance().MySqlConnection);
             cmd.ExecuteNonQuery();
         }
     }
