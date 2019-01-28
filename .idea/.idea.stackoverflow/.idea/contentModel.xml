@@ -5,6 +5,18 @@
     <e p="$USER_HOME$/.Rider2018.2/system/resharper-host/local/Transient/ReSharperHost/v182/SolutionCaches/_stackoverflow.1267297045.00" t="ExcludeRecursive" />
     <e p="$PROJECT_DIR$" t="IncludeRecursive">
       <e p=".gitignore" t="Include" />
+      <e p=".vs" t="Include">
+        <e p="c3" t="Include">
+          <e p="v15" t="Include">
+            <e p=".suo" t="Include" />
+          </e>
+        </e>
+        <e p="stackoverflow" t="Include">
+          <e p="v15" t="Include">
+            <e p=".suo" t="Include" />
+          </e>
+        </e>
+      </e>
       <e p="Controllers" t="Include">
         <e p="AddQuestionController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
@@ -17,7 +29,33 @@
         <e p="Logic.cs" t="Include" />
       </e>
       <e p="Models" t="Include">
+        <e p="DBConnection.cs" t="Include" />
         <e p="ErrorViewModel.cs" t="Include" />
+        <e p="dao" t="Include">
+          <e p="AnswerCommentDAO.cs" t="Include" />
+          <e p="AnswerDAO.cs" t="Include" />
+          <e p="DAO.cs" t="Include" />
+          <e p="LikeAnswerDAO.cs" t="Include" />
+          <e p="LikeQuestionDAO.cs" t="Include" />
+          <e p="QuestionCommentDAO.cs" t="Include" />
+          <e p="QuestionDAO.cs" t="Include" />
+          <e p="SessionDAO.cs" t="Include" />
+          <e p="TagDAO.cs" t="Include" />
+          <e p="TagQuestionDAO.cs" t="Include" />
+          <e p="UserDAO.cs" t="Include" />
+        </e>
+        <e p="db" t="Include">
+          <e p="Answer.cs" t="Include" />
+          <e p="AnswerComment.cs" t="Include" />
+          <e p="LikeAnswer.cs" t="Include" />
+          <e p="LikeQuestion.cs" t="Include" />
+          <e p="Question.cs" t="Include" />
+          <e p="QuestionComment.cs" t="Include" />
+          <e p="Session.cs" t="Include" />
+          <e p="Tag.cs" t="Include" />
+          <e p="TagQuestion.cs" t="Include" />
+          <e p="User.cs" t="Include" />
+        </e>
       </e>
       <e p="Program.cs" t="Include" />
       <e p="Properties" t="Include">
@@ -58,8 +96,8 @@
       </e>
       <e p="appsettings.Development.json" t="Include" />
       <e p="appsettings.json" t="Include" />
-      <e p="b.txt" t="Include" />
       <e p="bin" t="ExcludeRecursive" />
+      <e p="connection_string.txt" t="Include" />
       <e p="log.txt" t="Include" />
       <e p="obj" t="ExcludeRecursive">
         <e p="Debug" t="Include">
