@@ -81,5 +81,23 @@ namespace stackoverflow.Models.dao
             rd.Close();
             return ans;
         }
+
+        public Question GetQuestionById(int id)
+        {
+            var cmd = new MySqlCommand("select * from main_question where id=" + id, DBConnection.Instance().MySqlConnection);
+            var rd = cmd.ExecuteReader();
+            if (rd.Read())
+            {
+                var title = (string)rd["title"];
+                var content = (string)rd["content"];
+                var day = (string)rd["day"];
+                var hour = (string)rd["hour"];
+                var userId = (int)rd["user_id"];
+                var question = new Question(id, content, day, hour, title, userId);
+                return question;
+            }
+
+            return null;
+        }
     }
 }

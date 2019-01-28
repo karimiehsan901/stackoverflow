@@ -25,5 +25,25 @@ namespace stackoverflow.Models.dao
             var cmd = new MySqlCommand("insert into main_session (session_id, session_key, value) values (\'" + sessionId + "\', \'username\',\'" + username + "\')", DBConnection.Instance().MySqlConnection);
             cmd.ExecuteNonQuery();
         }
+
+        public void Logout(string sessionId)
+        {
+            var cmd = new MySqlCommand("delete from main_session where session_id=\'" + sessionId + "\'", DBConnection.Instance().MySqlConnection);
+            cmd.ExecuteNonQuery();
+        }
+
+        public string GetUsername(string sessionId)
+        {
+            string value = null;
+            var cmd = new MySqlCommand("select value from main_session where session_key=\'username\' and session_id=\'" + sessionId + "\'", DBConnection.Instance().MySqlConnection);
+            var rd = cmd.ExecuteReader();
+            if (rd.Read())
+            {
+                value = (string) rd["value"];
+            }
+            rd.Close();
+            return value;
+
+        }
     }
 }
