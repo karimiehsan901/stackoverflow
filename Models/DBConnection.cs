@@ -13,6 +13,7 @@ namespace stackoverflow.Models
             {
                 var connectionString = File.ReadAllText("connection_string.txt");
                 var con = new MySqlConnection(connectionString);
+                con.Open();
                 instance = new DBConnection(con);
             }
             return instance;

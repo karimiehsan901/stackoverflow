@@ -1,3 +1,5 @@
+using MySql.Data.MySqlClient;
+
 namespace stackoverflow.Models.dao
 {
     public class SessionDAO : DAO
@@ -16,6 +18,12 @@ namespace stackoverflow.Models.dao
 
         private SessionDAO()
         {
+        }
+
+        public void Login(string sessionId, string username)
+        {
+            var cmd = new MySqlCommand("insert into main_session (session_id, session_key, value) values (" + sessionId + ", username," + username + ")", DBConnection.Instance().MySqlConnection);
+            cmd.ExecuteNonQuery();
         }
     }
 }
