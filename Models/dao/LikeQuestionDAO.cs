@@ -33,7 +33,7 @@ namespace stackoverflow.Models.dao
             {
                 var userId = (int)rd["userId"];
                 var id = (int)rd["id"];
-                var isLike = (bool)rd["isLike"];
+                var isLike = (bool)rd["is_like"];
                 var answer = new LikeQuestion(id, questionId, userId, isLike);
                 if (isLike)
                     count++;
