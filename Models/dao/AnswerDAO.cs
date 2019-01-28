@@ -26,11 +26,11 @@ namespace stackoverflow.Models.dao
         public List<Answer> GetAnswersOfUser(int userId)
         {
             var ans = new List<Answer>();
-            var idFinder = new MySqlCommand("select * from main_question where user_id=" + userId + " order by id desc", DBConnection.Instance().MySqlConnection);
+            var idFinder = new MySqlCommand("select * from main_answer where user_id=" + userId + " order by id desc", DBConnection.Instance().MySqlConnection);
             var rd = idFinder.ExecuteReader();
             while (rd.Read())
             {
-                var questionId = (int)rd["questionId"];
+                var questionId = (int)rd["question_id"];
                 var id = (int)rd["id"];
                 var content = (string)rd["content"];
                 var day = (string)rd["day"];
@@ -54,11 +54,11 @@ namespace stackoverflow.Models.dao
         public List<Answer> GetAnswers(int questionId)
         {
             var ans = new List<Answer>();
-            var idFinder = new MySqlCommand("select * from main_question where user_id=" + questionId + " order by id desc", DBConnection.Instance().MySqlConnection);
+            var idFinder = new MySqlCommand("select * from main_answer where user_id=" + questionId + " order by id desc", DBConnection.Instance().MySqlConnection);
             var rd = idFinder.ExecuteReader();
             while (rd.Read())
             {
-                var userId = (int)rd["userId"];
+                var userId = (int)rd["user_id"];
                 var id = (int)rd["id"];
                 var content = (string)rd["content"];
                 var day = (string)rd["day"];

@@ -23,17 +23,17 @@ namespace stackoverflow.Models.dao
         {
         }
 
-        public List<Tag> GetTagsOfQuestion(int questionId)
+        public List<TagQuestion> GetTagsOfQuestion(int questionId)
         {
-            var ans = new List<Tag>();
+            var ans = new List<TagQuestion>();
             var idFinder = new MySqlCommand("select * from main_question where user_id=" + questionId + " order by id desc", DBConnection.Instance().MySqlConnection);
             var rd = idFinder.ExecuteReader();
             while (rd.Read())
             {
-                var title = (string)rd["title"];
                 var id = (int)rd["id"];
-                var tag = new Tag(id, title);
-                ans.Add(tag);
+                var tagId = (int)rd["tag_id"];
+                var tagQuestion = new TagQuestion(id, questionId, tagId);
+                ans.Add(tagQuestion);
             }
             rd.Close();
             return ans;
