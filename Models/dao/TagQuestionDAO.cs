@@ -26,7 +26,7 @@ namespace stackoverflow.Models.dao
         public List<TagQuestion> GetTagsOfQuestion(int questionId)
         {
             var ans = new List<TagQuestion>();
-            var idFinder = new MySqlCommand("select * from main_tagquestion where user_id=" + questionId + " order by id desc", DBConnection.Instance().MySqlConnection);
+            var idFinder = new MySqlCommand("select * from main_tagquestion where question_id=" + questionId + " order by id desc", DBConnection.Instance().MySqlConnection);
             var rd = idFinder.ExecuteReader();
             while (rd.Read())
             {
