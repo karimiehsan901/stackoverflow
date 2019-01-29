@@ -85,6 +85,24 @@ namespace stackoverflow.Models.dao
             return count;
         }
 
+        public int GetLikeCountAnswer(int answerId)
+        {
+            var idFinder = new MySqlCommand("select * from main_likeanswer where answer_id=" + answerId,
+                DBConnection.Instance().MySqlConnection);
+            var rd = idFinder.ExecuteReader();
+            int count = 0;
+            while (rd.Read())
+            {
+                
+                var isLike = (bool)rd["is_like"];
+                
+                if (isLike)
+                    count++;
+            }
+            rd.Close();
+            return count;
+        }
+
 
     }
 }

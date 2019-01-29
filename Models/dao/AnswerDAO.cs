@@ -69,5 +69,25 @@ namespace stackoverflow.Models.dao
             rd.Close();
             return ans;
         }
+
+        public int CreateAnswer(string title, string content, int userId, int questionId)
+        {
+            var hour = DateTime.Now.ToString("HH:m:s tt zzz");
+            var day = DateTime.Now.ToString("yyyy MMMM dd");
+            var cmd = new MySqlCommand("insert into main_question (title, content, day, hour, user_id, question_id) values (\'" + title + "\', \'" + content
+                                       + "\', \'" + day + "\', \'" + hour + "\', \'" + userId + "\'," + questionId + ")", DBConnection.Instance().MySqlConnection);
+            cmd.ExecuteNonQuery();
+
+            var idFinder = new MySqlCommand("select id from main_question where user_id=" + userId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);
+            var rd = idFinder.ExecuteReader();
+            while (rd.Read())
+            {
+                var id = (int)rd["id"];
+                rd.Close();
+                return id;
+            }
+
+            return 0;
+        }
     }
 }

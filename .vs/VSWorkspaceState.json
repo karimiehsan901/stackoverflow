@@ -1,11 +1,23 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Controllers",
+    "\\Logic",
     "\\Models",
     "\\Models\\dao",
+<<<<<<< HEAD
     "\\Views",
     "\\Views\\Home"
   ],
   "SelectedNode": "\\Models\\dao\\SessionDAO.cs",
+=======
+    "\\Models\\db",
+    "\\Views",
+    "\\Views\\AddQuestion",
+    "\\Views\\Login",
+    "\\Views\\Profile"
+  ],
+  "SelectedNode": "\\Models\\db\\TagQuestion.cs",
+>>>>>>> 441640fae7fb933f3ac7c24e8d6e8c2c531958ed
   "PreviewInSolutionExplorer": false
 }
