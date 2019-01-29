@@ -35,13 +35,12 @@ namespace stackoverflow.Models.dao
 
         public Tag GetTag(string title)
         {
-            var ans;
             var idFinder = new MySqlCommand("select * from main_tag where title=" + title, DBConnection.Instance().MySqlConnection);
             var rd = idFinder.ExecuteReader();
             if (rd.Read())
             {
                 var id = (int)rd["id"];
-                ans = new TagDAO(id,title);
+                var ans = new Tag(id,title);
 
                 rd.Close();
 
@@ -50,5 +49,22 @@ namespace stackoverflow.Models.dao
 
            
         }
+
+        public Tag GetTagById(int id)
+        {
+            var idFinder = new MySqlCommand("select * from main_tag where id=" + id, DBConnection.Instance().MySqlConnection);
+            var rd = idFinder.ExecuteReader();
+            if (rd.Read())
+            {
+                var title = (int)rd["title"];
+                var ans = new Tag(id, title);
+
+                rd.Close();
+
+                return ans;
+            }
+        }
+
+
     }
 }
