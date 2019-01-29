@@ -25,7 +25,7 @@ namespace stackoverflow.Models.dao
 
         public int GetLikeCount(int questionId)
         {
-            var idFinder = new MySqlCommand("select * from main_question where user_id=" + questionId + " order by id desc",
+            var idFinder = new MySqlCommand("select * from main_question where question_id=" + questionId + " order by id desc",
                 DBConnection.Instance().MySqlConnection);
             var rd = idFinder.ExecuteReader();
             int count = 0;
