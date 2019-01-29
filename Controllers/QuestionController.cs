@@ -79,6 +79,9 @@ namespace stackoverflow.Controllers
                 ans.Add(dic);
             }
             ViewData["ans"] = ans;
+
+
+
             ViewData["id"] = sid;
             return View();
         }
