@@ -54,7 +54,7 @@ namespace stackoverflow.Models.dao
         public List<Answer> GetAnswers(int questionId)
         {
             var ans = new List<Answer>();
-            var idFinder = new MySqlCommand("select * from main_answer where user_id=" + questionId + " order by id desc", DBConnection.Instance().MySqlConnection);
+            var idFinder = new MySqlCommand("select * from main_answer where question_id=" + questionId + " order by id desc", DBConnection.Instance().MySqlConnection);
             var rd = idFinder.ExecuteReader();
             while (rd.Read())
             {

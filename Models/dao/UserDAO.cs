@@ -57,7 +57,7 @@ namespace stackoverflow.Models.dao
 
         public User GetUserByUsernameAndPassword(string username, string password)
         {
-            var cmd = new MySqlCommand("select * from main_user where username=\'" + username + "\' and email=\'" + password + "\'", DBConnection.Instance().MySqlConnection);
+            var cmd = new MySqlCommand("select * from main_user where username=\'" + username + "\' and password=\'" + password + "\'", DBConnection.Instance().MySqlConnection);
             var rd = cmd.ExecuteReader();
             if (rd.Read())
             {

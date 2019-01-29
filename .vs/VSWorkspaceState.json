@@ -1,10 +1,24 @@
 {
   "ExpandedNodes": [
     "",
+<<<<<<< HEAD
     "\\Controllers",
     "\\Models",
     "\\Models\\db"
   ],
   "SelectedNode": "\\Controllers\\ProfileController.cs",
+=======
+    "\\Models",
+    "\\Models\\dao",
+    "\\Models\\db",
+    "\\Views\\AddQuestion",
+    "\\Views\\Home",
+    "\\Views\\Login",
+    "\\Views\\Profile",
+    "\\Views\\Shared",
+    "\\Views\\SignUp"
+  ],
+  "SelectedNode": "\\Models\\dao\\LikeAnswerDAO.cs",
+>>>>>>> 0e82e44a66e697150d4dd2710f35f69bf344d927
   "PreviewInSolutionExplorer": false
 }

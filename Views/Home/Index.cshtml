@@ -1,4 +1,5 @@
-﻿@{
+﻿@using stackoverflow.Models.db
+@{
     Layout = "";
 }
 <html>
@@ -33,24 +34,34 @@
 <div class="col-lg-1">
 </div>
 <div class="col-lg-10">
-    <hr/>
-    <div class="col-lg-1 question-card">
-        0 <br>
-        votes
-    </div>
-    <div class="col-lg-1 question-card">
-        0 <br>
-        answers
-    </div>
-    <div class="col-lg-1 question-card">
-        0 <br>
-        views
-    </div>
-    <div class="col-lg-9">
-        <h3><a href="/Question/Index/1" class="question-title">How do I operate on a DataFrame with a Series for every column</a></h3>
-        <span class="tag">python</span>
-        <span class="tag">pandas</span>
-    </div>
+    @{
+        foreach (var dic in (List<Dictionary<string, object>>)ViewData["ans"])
+        {
+            <hr/>
+            <div class="col-lg-1 question-card">
+                @dic["likeCount"] <br>
+                votes
+            </div>
+            <div class="col-lg-1 question-card">
+                @dic["answerCount"] <br>
+                answers
+            </div>
+            <div class="col-lg-1 question-card">
+                0 <br>
+                views
+            </div>
+            <div class="col-lg-9">
+                <h3><a href="/Question/Index/@dic["id"]" class="question-title">@dic["title"]</a></h3>
+                @{
+                    foreach (var tag in (List<Tag>)dic["tags"])
+                    {
+                        <span class="tag">@tag.Title</span>                        
+                    }
+                }
+                
+            </div>            
+        }
+    }
 </div>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>

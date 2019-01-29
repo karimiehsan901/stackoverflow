@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 
 is null
 is null
@@ -12,3 +13,6 @@ invalid
 invalid
 invalid
 invalid
+=======
+here
+>>>>>>> 0e82e44a66e697150d4dd2710f35f69bf344d927
