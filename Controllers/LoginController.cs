@@ -16,12 +16,11 @@ namespace stackoverflow.Controllers
             {
                 _sessionDao.Login(HttpContext.Session.Id, username);
             }
-            else
+            else if(Request.Method=="POST")
             {
                 ViewData["error"] = "your password or username is incorrect";
             }
 
-       
             return View();
 
         }
