@@ -31,7 +31,7 @@ namespace stackoverflow.Models.dao
             int count = 0;
             while (rd.Read())
             {
-                var userId = (int)rd["userId"];
+                var userId = (int)rd["user_id"];
                 var id = (int)rd["id"];
                 var isLike = (bool)rd["is_like"];
                 var answer = new LikeQuestion(id, questionId, userId, isLike);

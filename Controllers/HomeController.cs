@@ -16,6 +16,7 @@ namespace stackoverflow.Controllers
         private TagDAO _tagDao = TagDAO.Instance();
         private TagQuestionDAO _tagQuestionDao = TagQuestionDAO.Instance();
         private AnswerDAO _answerDao = AnswerDAO.Instance();
+        private LikeQuestionDAO _likeQuestionDao = LikeQuestionDAO.Instance();
         public IActionResult Index()
         {
             var questions = _questionDao.GetLastQuestions();
@@ -29,10 +30,12 @@ namespace stackoverflow.Controllers
                     var tag = _tagDao.GetTagById(tagQuestion.TagId);
                     tags.Add(tag);
                 }
+
+                var likeCount = _likeQuestionDao.GetLikeCount(question.Id);
                 var dic = new Dictionary<string, object>
                 {
                     ["title"] = question.Title, ["answerCount"] = _answerDao.GetAnswerCount(question.Id)
-                    ,["tags"] = tags
+                    ,["tags"] = tags, ["id"] = question.Id, ["likeCount"] = likeCount
                 };
                 
                 ans.Add(dic);

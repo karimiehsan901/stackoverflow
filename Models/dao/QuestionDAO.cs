@@ -94,9 +94,10 @@ namespace stackoverflow.Models.dao
                 var hour = (string)rd["hour"];
                 var userId = (int)rd["user_id"];
                 var question = new Question(id, content, day, hour, title, userId);
+                rd.Close();
                 return question;
             }
-
+            rd.Close();
             return null;
         }
     }
