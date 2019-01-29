@@ -22,6 +22,7 @@ namespace stackoverflow.Controllers
         private AnswerDAO _answerDao = AnswerDAO.Instance();
         private AnswerCommentDAO _answercommentDao = AnswerCommentDAO.Instance();
         private QuestionCommentDAO _questioncommentDao = QuestionCommentDAO.Instance();
+        private UserDAO _userDao = UserDAO.Instance();
         public IActionResult Index(int id)
         {
             HttpContext.Session.SetString("init", "0");
@@ -80,7 +81,12 @@ namespace stackoverflow.Controllers
             }
             ViewData["ans"] = ans;
 
-
+            var sessionId = HttpContext.Session.Id;
+            var userName = (string)_sessionDao.GetUsername(sessionId);
+            var user = (User)_userDao.GetUserByUsername(userName);
+            var content = Logic.Logic.GetValue(Request, "content");
+            var title = Logic.Logic.GetValue(Request, "title");
+            var createdanswer = (int)_answerDao.CreateAnswer(title, content, user.Id, question.Id); 
 
             ViewData["id"] = sid;
             return View();
