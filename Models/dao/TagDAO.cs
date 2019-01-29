@@ -46,6 +46,7 @@ namespace stackoverflow.Models.dao
 
                 return ans;
             }
+            return null;
 
            
         }
@@ -63,6 +64,7 @@ namespace stackoverflow.Models.dao
 
                 return ans;
             }
+            return null;
         }
 
 
