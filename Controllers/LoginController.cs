@@ -1,5 +1,13 @@
 using Microsoft.AspNetCore.Mvc;
 using stackoverflow.Models.dao;
+using stackoverflow.Models.db;
+using System;
+using System.Collections.Generic;
+using System.Diagnostics;
+using System.Linq;
+using System.Threading.Tasks;
+
+
 
 namespace stackoverflow.Controllers
 {
@@ -15,6 +23,7 @@ namespace stackoverflow.Controllers
             if(usr != null)
             {
                 _sessionDao.Login(HttpContext.Session.Id, username);
+                return RedirectToAction("Index", "Home");
             }
             else if(Request.Method=="POST")
             {
