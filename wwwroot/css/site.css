@@ -40,3 +40,7 @@
     background-color: #54a2ab;
     color: #f2fff8;
 }
+.error {
+    color: #c20808;
+    text-align: center;
+}

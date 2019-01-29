@@ -35,6 +35,14 @@
     <h2 class="text-center">
         Sign Up
     </h2>
+    @{
+        if (ViewData["error"] != null)
+        {
+            <h4 class="error">
+                @ViewData["error"]
+            </h4>
+        }
+    }
     <form method="post" class="form-group">
         <div class="form-group">
             <label for="name">Name:</label>
