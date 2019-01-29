@@ -1,16 +1,16 @@
 {
   "ExpandedNodes": [
     "",
+    "\\Controllers",
     "\\Models",
     "\\Models\\dao",
     "\\Models\\db",
+    "\\Views",
     "\\Views\\AddQuestion",
-    "\\Views\\Home",
     "\\Views\\Login",
     "\\Views\\Profile",
-    "\\Views\\Shared",
-    "\\Views\\SignUp"
+    "\\Views\\Question"
   ],
-  "SelectedNode": "\\Models\\dao\\LikeAnswerDAO.cs",
+  "SelectedNode": "\\Controllers\\HomeController.cs",
   "PreviewInSolutionExplorer": false
 }
