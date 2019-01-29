@@ -26,7 +26,7 @@ namespace stackoverflow.Models.dao
 
         public int CreatTag(string title)
         {
-                var cmd = new MySqlCommand("insert into main_tag (title) values (\'" + title + ")", DBConnection.Instance().MySqlConnection);
+                var cmd = new MySqlCommand("insert into main_tag (title) values (\'" + title + "\')", DBConnection.Instance().MySqlConnection);
                 cmd.ExecuteNonQuery();
                 return 0;
             
