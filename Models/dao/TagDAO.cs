@@ -26,36 +26,29 @@ namespace stackoverflow.Models.dao
 
         public int CreatTag(string title)
         {
-            var idFinder = new MySqlCommand("select * from main_tag where title=" + title, DBConnection.Instance().MySqlConnection);
-            var rd = idFinder.ExecuteReader();
-            if (rd.Read())
-            {
-                var id = (int)rd["id"];
-                rd.Close();
-                return id;
-            }
-            else
-            {
                 var cmd = new MySqlCommand("insert into main_tag (title) values (\'" + title + ")", DBConnection.Instance().MySqlConnection);
                 cmd.ExecuteNonQuery();
                 return 0;
-            }
+            
 
         }
 
-        public int GetTag(string title)
+        public Tag GetTag(string title)
         {
-    
+            var ans;
             var idFinder = new MySqlCommand("select * from main_tag where title=" + title, DBConnection.Instance().MySqlConnection);
             var rd = idFinder.ExecuteReader();
             if (rd.Read())
             {
                 var id = (int)rd["id"];
+                ans = new TagDAO(id,title);
+
                 rd.Close();
-                return id;
+
+                return ans;
             }
 
-            return 0;
+           
         }
     }
 }
