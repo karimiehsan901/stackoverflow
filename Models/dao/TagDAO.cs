@@ -56,7 +56,7 @@ namespace stackoverflow.Models.dao
             var rd = idFinder.ExecuteReader();
             if (rd.Read())
             {
-                var title = (int)rd["title"];
+                var title = (string)rd["title"];
                 var ans = new Tag(id, title);
 
                 rd.Close();
