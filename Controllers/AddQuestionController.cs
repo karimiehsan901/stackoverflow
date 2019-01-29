@@ -27,7 +27,7 @@ namespace stackoverflow.Controllers
             var username = _sessionDao.GetUsername(sessionId);
             var user = (User)  _userDao.GetUserByUsername(username);
 
-            if (title != null && body != null)
+            if (title != null && content != null)
             {
                 var usr = _questionDao.CreateQuestion(title, content,user.Id);
                 //get questionid

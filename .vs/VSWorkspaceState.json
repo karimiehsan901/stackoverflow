@@ -2,15 +2,15 @@
   "ExpandedNodes": [
     "",
     "\\Controllers",
+    "\\Logic",
     "\\Models",
     "\\Models\\dao",
     "\\Models\\db",
     "\\Views",
     "\\Views\\AddQuestion",
     "\\Views\\Login",
-    "\\Views\\Profile",
-    "\\Views\\Question"
+    "\\Views\\Profile"
   ],
-  "SelectedNode": "\\Controllers\\HomeController.cs",
+  "SelectedNode": "\\Models\\db\\TagQuestion.cs",
   "PreviewInSolutionExplorer": false
 }
