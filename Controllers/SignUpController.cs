@@ -1,13 +1,14 @@
 using System;
 using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using MySql.Data.MySqlClient;
-using MySqlX.XDevAPI;
+using stackoverflow.Models.dao;
 
 namespace stackoverflow.Controllers
 {
     public class SignUpController : Controller
     {
+        private UserDAO _userDao = UserDAO.Instance();
+        private SessionDAO _sessionDao = SessionDAO.Instance();
         public IActionResult Index()
         {
             var name = Logic.Logic.GetValue(Request, "name");
@@ -17,31 +18,20 @@ namespace stackoverflow.Controllers
             if (Logic.Logic.IsValidName(name) && Logic.Logic.IsValidUsername(username)
                 && Logic.Logic.IsValidPassword(password) && Logic.Logic.IsValidEmail(email))
             {
-                var connectionString = "Server=localhost; database=stack_overflow; UID=root; password=13771998;SslMode=none";
-                using (var conn = new MySqlConnection(connectionString))
+                if (!_userDao.Exists(email, username))
                 {
-                    conn.Open();
-                    var checkExist = new MySqlCommand("select id from main_user where username=\'" + username + "\'" + "or email=\'" + email + "\'", conn);
-                    var dr = checkExist.ExecuteReader();
-                    if (!dr.Read())
-                    {
-                        dr.Close();
-                        var cmd = new MySqlCommand("insert into main_user (name, username, password, email) values (\'" + name + "\',\'" + username + "\',\'" + password + "\',\'" + email + "\')", conn);
-                        cmd.ExecuteNonQuery();
-                        var sessionId = HttpContext.Session.Id;
-                        cmd = new MySqlCommand("insert into main_session (session_id, session_key, value) values (\'" + sessionId + "\',\'username\',\'" + username + "\')", conn);
-                        cmd.ExecuteNonQuery();
-                    }
-                    else
-                    {
-                        Logic.Logic.Log("exists");
-                    }
+                    _userDao.CreateUser(username, password, email, name);
+                    _sessionDao.Login(HttpContext.Session.Id, username);
+                    return RedirectToAction("Index", "Home");
                 }
-
+                else
+                {
+                    ViewData["error"] = "username or email is duplicated";
+                }
             }
-            else
+            else if (Request.Method == "POST")
             {
-                Logic.Logic.Log("invalid");
+                ViewData["error"] = "a field is invalid";
             }
             return View();
         }

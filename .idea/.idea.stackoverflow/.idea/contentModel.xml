@@ -96,6 +96,7 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="stackoverflow.csproj" t="IncludeRecursive" />
+      <e p="test.txt" t="Include" />
       <e p="testMasoumeh.txt" t="Include" />
       <e p="test_tara.txt" t="Include" />
       <e p="wwwroot" t="Include">
