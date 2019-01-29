@@ -57,6 +57,34 @@ namespace stackoverflow.Models.dao
 
             return count;
         }
-        
+
+
+        public int DisLikesAnswer(int answerId, int userId)
+        {
+            int count = 0;
+            var cmd = new MySqlCommand("select * from main_likeanswer where answer_id=" + answerId + "and user_id=" + userId, DBConnection.Instance().MySqlConnection);
+
+            var rd = cmd.ExecuteReader();
+
+            if (rd.Read())
+            {
+                var cmd2 = new MySqlCommand("update main_likeanswer where answer_id=" + answerId + "and user_id=" + userId + "set is_like=false", DBConnection.Instance().MySqlConnection);
+                cmd2.ExecuteNonQuery();
+            }
+          
+
+            var cmd3 = new MySqlCommand("select * from main_likeanswer where answer_id=" + answerId + "and is_like=true", DBConnection.Instance().MySqlConnection);
+            var rd2 = cmd3.ExecuteReader();
+
+            while (rd2.Read())
+            {
+                count++;
+            }
+            rd2.Close();
+
+            return count;
+        }
+
+
     }
 }

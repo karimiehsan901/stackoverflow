@@ -1,6 +1,16 @@
 {
   "ExpandedNodes": [
-    ""
+    "",
+    "\\Models",
+    "\\Models\\dao",
+    "\\Models\\db",
+    "\\Views\\AddQuestion",
+    "\\Views\\Home",
+    "\\Views\\Login",
+    "\\Views\\Profile",
+    "\\Views\\Shared",
+    "\\Views\\SignUp"
   ],
+  "SelectedNode": "\\Models\\dao\\LikeAnswerDAO.cs",
   "PreviewInSolutionExplorer": false
 }
