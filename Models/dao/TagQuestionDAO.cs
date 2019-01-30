@@ -41,6 +41,9 @@ namespace stackoverflow.Models.dao
 
         public int CreateTagQuestion(int questionId, int tagId)
         {
+            var cmd = new MySqlCommand("insert into main_tagquestion (question_id, user_id) values (\'" + questionId + "\'," + userId + ")", DBConnection.Instance().MySqlConnection);
+            cmd.ExecuteNonQuery();
+
             var idFinder = new MySqlCommand("select id from main_question where =" + tagId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);
             var rd = idFinder.ExecuteReader();
             while (rd.Read())
