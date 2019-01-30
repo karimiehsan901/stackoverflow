@@ -78,7 +78,7 @@ namespace stackoverflow.Models.dao
                                        + "\', \'" + day + "\', \'" + hour + "\', \'" + userId + "\'," + questionId + ")", DBConnection.Instance().MySqlConnection);
             cmd.ExecuteNonQuery();
 
-            var idFinder = new MySqlCommand("select id from main_user where user_id=" + userId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);
+            var idFinder = new MySqlCommand("select id from main_question where user_id=" + userId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);
             var rd = idFinder.ExecuteReader();
             while (rd.Read())
             {
