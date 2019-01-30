@@ -22,23 +22,42 @@ namespace stackoverflow.Controllers
 
         public IActionResult Index()
         {
-            var sessionId = HttpContext.Session.Id;
+            var sessionId = Logic.Logic.GetSessionId(Request);
             var username = _sessionDAO.GetUsername(sessionId);
-            var user = _userDAO.GetUserByUsername(username);
-            var questions = _questionDAO.GetQuestionsOfUser(user.Id);
-            var answers = _answerDAO.GetAnswersOfUser(user.Id);
-
-            var dic = new Dictionary<string, object>
+            if (username != null)
             {
-                ["id"] = user.Id,
-                ["name"] = user.Name,
-                ["password"] = user.Password,
-                ["username"] = user.Username,
-                ["email"] = user.Email,
-                ["questions"] = questions,
-                ["answers"] = answers
-            };
-            ViewData["dataOfUser"] = dic;
+                var user = _userDAO.GetUserByUsername(username);
+                if (user != null)
+                {
+                    var questions = _questionDAO.GetQuestionsOfUser(user.Id);
+                    var answers = _answerDAO.GetAnswersOfUser(user.Id);
+                    var dic = new Dictionary<string, object>
+                    {
+                        ["id"] = user.Id,
+                        ["name"] = user.Name,
+                        ["password"] = user.Password,
+                        ["username"] = user.Username,
+                        ["email"] = user.Email
+                    };
+                    if (questions != null)
+                    {
+                        dic["questions"] = questions;
+                    }
+                    if (answers != null)
+                    {
+                        dic["answers"] = answers;
+                    }
+                    ViewData["dataOfUser"] = dic;
+                }
+                else
+                {
+                    return RedirectToAction("index", "Login");
+                }
+            }
+            else
+            {
+                return RedirectToAction("index", "Login");
+            }
             return View();
         }
         
