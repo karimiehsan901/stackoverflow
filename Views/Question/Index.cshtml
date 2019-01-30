@@ -27,8 +27,18 @@
                 </div>
             </div>
             <ul class="nav navbar-nav navbar-right">
-                <li><a href="/SignUp/"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
-                <li><a href="/Login/"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+                @{
+                    if (!(bool)ViewData["isLogin"])
+                    {
+                        <li><a href="/SignUp/"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                        <li><a href="/Login/"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                    }
+                    else
+                    {
+                        <li><a href="/Profile/"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
+                        <li><a href="/Logout/"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+                    }
+                }
             </ul>
         </div>
     </nav>
@@ -73,14 +83,12 @@
             <hr />
         </div>
         @{ 
-            if (ViewData["ans"] != null)
-            {
+            
                 foreach (var answer in (List<Dictionary<string, object>>)ViewData["ans"])
                 {
                     <div class="col-lg-12">
                         @{
-                            if (answer != null)
-                            {
+                            
                                 <div class="col-lg-2 center-align">
                                     <span class="fa fa-chevron-up fa-3x"></span>
                                     <br/>
@@ -106,20 +114,19 @@
                                 <br/>
                                 <br/>
                                 <hr/>
-                            }
+                           
                         }
                     </div>
-                                    }
+                                    
                                 }
-                    @if (ViewData["user"] != null)
-                    {
-                        <div class="col-lg-12">
-                            <hr />
-                            <h3>Your Answer</h3>
-                            <textarea class="form-control" rows="10"></textarea>
-                            <button class="form-control">Submit</button>
-                        </div>
-                      }
+                        <form class="col-lg-12">
+                                <hr />
+                                <h3>Your Answer</h3>
+                                <textarea class="form-control" rows="10" name="yourAnswer"></textarea>
+                            <div class="form_group">
+                                <input class="form-control" type="submit" />
+                            </div>
+                        </form>
         }
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>

@@ -28,6 +28,9 @@ namespace stackoverflow.Controllers
             HttpContext.Session.SetString("init", "0");
 //            HttpContext.Session.SetString("test", "test session");
             var sid = HttpContext.Session.Id;
+            var sessionId = Logic.Logic.GetSessionId(Request);
+            var username = _sessionDao.GetUsername(sessionId);
+            var isLogin = username != null;
 
             //my code
             var question = (Question)_questionDao.GetQuestionById(id);
@@ -55,8 +58,6 @@ namespace stackoverflow.Controllers
             ViewData["answer_count"] = answerCount;
             ViewData["question_comments"] = questionComments;
             var ans = new List<Dictionary<string, object>>();
-            if (answers != null)
-            {
                 foreach (var answer in answers)
                 {
                     if (answer != null)
@@ -78,19 +79,21 @@ namespace stackoverflow.Controllers
                     }
                 }
                 ViewData["ans"] = ans;
-            }
 
-            var sessionId = Logic.Logic.GetSessionId(Request);
+            var _sessionId = Logic.Logic.GetSessionId(Request);
             //var sessionId = HttpContext.Session.Id;
-            var userName = (string)_sessionDao.GetUsername(sessionId);
+            var userName = (string)_sessionDao.GetUsername(_sessionId);
             var user = (User)_userDao.GetUserByUsername(userName);
             ViewData["user"] = user;
             var content = Logic.Logic.GetValue(Request, "content");
             if(content != null)
             {
-                var title = Logic.Logic.GetValue(Request, "title");
-                var createdanswer = (int)_answerDao.CreateAnswer(title, content, user.Id, question.Id); 
+                var yourAnswer = Logic.Logic.GetValue(Request, "yourAnswer");
+                var createdanswer = (int)_answerDao.CreateAnswer(yourAnswer, user.Id, question.Id); 
             }
+            if(Request.Method == "POST")
+                ViewData["error"] = "Error";
+            ViewData["isLogin"] = isLogin;
             ViewData["id"] = sid;
             return View();
         }
