@@ -34,8 +34,8 @@ namespace stackoverflow.Controllers
             var questionLikeCount = (int)_likequestionDao.GetLikeCount(id);
             var tagQuestion = (List<TagQuestion>)_tagquestionDao.GetTagsOfQuestion(id);
             var tags = new List<Tag>();
-            var answers = (List<Answer>)_answerDao.GetAnswers(id);
-            var answerCount = (int)_answerDao.GetAnswerCount(id);
+            var answers = (List<Answer>)_answerDao.GetAnswers(question.Id);
+            var answerCount = (int)_answerDao.GetAnswerCount(question.Id);
             var questionComments = (List<QuestionComment>)_questioncommentDao.GetCommentsOfQuestion(id);
 
             foreach (var tq in tagQuestion)
@@ -55,19 +55,13 @@ namespace stackoverflow.Controllers
             ViewData["answer_count"] = answerCount;
             ViewData["question_comments"] = questionComments;
             var ans = new List<Dictionary<string, object>>();
+            if(answers != null)
             foreach (var answer in answers)
             {
                 if (answer != null)
                 {
                     var answerComments = (List<AnswerComment>)_answercommentDao.GetCommentsOfanswer(answer.Id);
                     var answerLikeCount = (int)_likeanswerDao.GetLikeCountAnswer(answer.Id);
-                    /*ViewData["answerContent"] = answer.Content;
-                    ViewData["answerDay"] = answer.Day;
-                    ViewData["answerHour"] = answer.Hour;
-                    ViewData["answerUserId"] = answer.UserId;
-                    ViewData["answerquestionId"] = answer.QuestionId;
-                    ViewData["answerLikeCount"] = answerLikeCount;
-                    ViewData["answer_comments"] = answerComments;*/
 
                     var dic = new Dictionary<string, object>
                     {

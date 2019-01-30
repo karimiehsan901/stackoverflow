@@ -36,7 +36,7 @@
     <div class="col-lg-1">
     </div>
     <div class="col-lg-10">
-        <h1> @ViewData["title"] </h1><hr />
+        <h1> @ViewData["questionTitle"] </h1><hr />
         <div class="col-lg-2 center-align">
             <span class="fa fa-chevron-up fa-3x"></span>
             <br />
@@ -46,7 +46,7 @@
         </div>
         <div class="col-lg-10">
             <div class="col-lg-12">
-                @ViewData["content"]
+                @ViewData["questionContent"]
                 <br />
                 <br />
                 @{ 
@@ -73,10 +73,12 @@
             <hr />
         </div>
         @{ 
-            foreach(var answer in (List<Dictionary<string, object>>)ViewData["ans"])
+            if (ViewData["ans"] != null)
             {
-                if (answer != null)
+                foreach (var answer in (List<Dictionary<string, object>>)ViewData["ans"])
                 {
+                    if (answer != null)
+                    {
                     <div class="col-lg-2 center-align">
                         <span class="fa fa-chevron-up fa-3x"></span>
                         <br />
@@ -101,8 +103,9 @@
                              }
                         </div>
                     </div>
-                 }
-            }
+                                        }
+                                    }
+                                }
                     @if (ViewData["user"] != null)
                     {
                         <div class="col-lg-12">
