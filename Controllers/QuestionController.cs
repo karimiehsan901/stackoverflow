@@ -85,9 +85,9 @@ namespace stackoverflow.Controllers
             var userName = (string)_sessionDao.GetUsername(sessionId);
             var user = (User)_userDao.GetUserByUsername(userName);
             ViewData["user"] = user;
-            if(Logic.Logic.GetValue(Request, "content") != null)
+            var content = Logic.Logic.GetValue(Request, "content");
+            if(content != null)
             {
-                var content = Logic.Logic.GetValue(Request, "content");
                 var title = Logic.Logic.GetValue(Request, "title");
                 var createdanswer = (int)_answerDao.CreateAnswer(title, content, user.Id, question.Id); 
             }
