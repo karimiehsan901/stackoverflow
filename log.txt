@@ -1,18 +1,3 @@
-<<<<<<< HEAD
-
-is null
-is null
-ljcsdasc
-invalid
-invalid
-<<<<<<< HEAD
-invalid
-invalid
-=======
->>>>>>> c27758f1202da71e51943a247dae59fce042d9d2
-invalid
-invalid
-invalid
-=======
-here
->>>>>>> 0e82e44a66e697150d4dd2710f35f69bf344d927
+e608a2a8-d83f-a5cf-ab6f-3fa2b22212ca
+e608a2a8-d83f-a5cf-ab6f-3fa2b22212ca
+e608a2a8-d83f-a5cf-ab6f-3fa2b22212ca

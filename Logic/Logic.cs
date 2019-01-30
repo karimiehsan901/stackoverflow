@@ -53,10 +53,14 @@ namespace stackoverflow.Logic
             return false;
         }
        
-
         public static bool IsValidPassword(string password)
         {
             return password != null && password.Length > 5;
+        }
+        
+        public static string GetSessionId(HttpRequest request)
+        {
+            return request.Cookies["session_id"];
         }
     }
 }

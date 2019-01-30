@@ -21,7 +21,7 @@ namespace stackoverflow.Controllers
                 if (!_userDao.Exists(email, username))
                 {
                     _userDao.CreateUser(username, password, email, name);
-                    _sessionDao.Login(HttpContext.Session.Id, username);
+                    _sessionDao.Login(Logic.Logic.GetSessionId(Request), username);
                     return RedirectToAction("Index", "Home");
                 }
                 else

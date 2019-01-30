@@ -9,6 +9,7 @@
         <e p="AddQuestionController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
         <e p="LoginController.cs" t="Include" />
+        <e p="LogoutController.cs" t="Include" />
         <e p="ProfileController.cs" t="Include" />
         <e p="QuestionController.cs" t="Include" />
         <e p="SignUpController.cs" t="Include" />
@@ -96,9 +97,6 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="stackoverflow.csproj" t="IncludeRecursive" />
-      <e p="test.txt" t="Include" />
-      <e p="testMasoumeh.txt" t="Include" />
-      <e p="test_tara.txt" t="Include" />
       <e p="wwwroot" t="Include">
         <e p="css" t="Include">
           <e p="site.css" t="Include" />

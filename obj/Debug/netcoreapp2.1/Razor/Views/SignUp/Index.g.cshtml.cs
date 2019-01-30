@@ -64,7 +64,7 @@ using stackoverflow.Models;
             WriteLiteral("<html>\r\n");
             EndContext();
             BeginContext(33, 293, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "924ce49ad70c41d5a427c2e4eea59baf", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8756464bffae4c8b8f2101c2e83132ca", async() => {
                 BeginContext(39, 280, true);
                 WriteLiteral(@"
     <link rel=""stylesheet"" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css""/>
@@ -88,7 +88,7 @@ using stackoverflow.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(328, 2440, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "cd32c65f1bae468d926e1f4dbad717c9", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "0cb221623f14435781c3dd1beda83364", async() => {
                 BeginContext(334, 981, true);
                 WriteLiteral(@"
 <nav class=""navbar navbar-inverse"">
@@ -150,7 +150,7 @@ using stackoverflow.Models;
                 WriteLiteral("    ");
                 EndContext();
                 BeginContext(1483, 1044, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "d9877db486254cd5afbfecbd15399103", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "44165433289c427a9c161360999cc402", async() => {
                     BeginContext(1522, 998, true);
                     WriteLiteral(@"
         <div class=""form-group"">

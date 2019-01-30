@@ -17,8 +17,12 @@ namespace stackoverflow.Controllers
         private TagQuestionDAO _tagQuestionDao = TagQuestionDAO.Instance();
         private AnswerDAO _answerDao = AnswerDAO.Instance();
         private LikeQuestionDAO _likeQuestionDao = LikeQuestionDAO.Instance();
+        private SessionDAO _sessionDao = SessionDAO.Instance();
         public IActionResult Index()
         {
+            var sessionId = Logic.Logic.GetSessionId(Request);
+            var username = _sessionDao.GetUsername(sessionId);
+            var isLogin = username != null;
             var questions = _questionDao.GetLastQuestions();
             var ans = new List<Dictionary<string, object>>();
             foreach (var question in questions)
@@ -42,6 +46,7 @@ namespace stackoverflow.Controllers
             }
 
             ViewData["ans"] = ans;
+            ViewData["isLogin"] = isLogin;
             return View();
         }
 
