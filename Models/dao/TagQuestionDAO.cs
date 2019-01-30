@@ -5,7 +5,7 @@ using stackoverflow.Models.db;
 
 namespace stackoverflow.Models.dao
 {
-    public class TagQuestionDAO
+    public class TagQuestionDAO : DAO
     {
         private static TagQuestionDAO instance;
 

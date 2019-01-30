@@ -21,6 +21,7 @@ namespace stackoverflow.Controllers
 
         public IActionResult Index()
         {
+            ViewData["isLogin"] = _sessionDao.GetUsername(Logic.Logic.GetSessionId(Request)) != null;
             var sessionId = Logic.Logic.GetSessionId(Request);
             var title = Logic.Logic.GetValue(Request, "title");
             var content = Logic.Logic.GetValue(Request, "body");

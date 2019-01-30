@@ -9,6 +9,7 @@
         <e p="AddQuestionController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
         <e p="LoginController.cs" t="Include" />
+        <e p="LogoutController.cs" t="Include" />
         <e p="ProfileController.cs" t="Include" />
         <e p="QuestionController.cs" t="Include" />
         <e p="SignUpController.cs" t="Include" />

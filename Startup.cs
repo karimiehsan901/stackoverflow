@@ -71,7 +71,10 @@ namespace stackoverflow
                     template: "{controller=Question}/{action=Index}/{id}");
                 routes.MapRoute(
                     name: "SignUp",
-                    template: "{controller=SignUp}/{action=Index}/{id?}");
+                    template: "{controller=SignUp}/{action=Index}");
+                routes.MapRoute(
+                    name: "Logout",
+                    template: "{controller=Logout}/{action=Index}");
 
 
             });

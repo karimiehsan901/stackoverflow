@@ -17,6 +17,7 @@ namespace stackoverflow.Controllers
         private UserDAO _userDao = UserDAO.Instance();
         public IActionResult Index()
         {
+            ViewData["isLogin"] = _sessionDao.GetUsername(Logic.Logic.GetSessionId(Request)) != null;
             var username = Logic.Logic.GetValue(Request, "username");
             var password = Logic.Logic.GetValue(Request, "password");
             var usr = (User)   _userDao.GetUserByUsernameAndPassword(username, password);
