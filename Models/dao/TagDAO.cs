@@ -35,7 +35,7 @@ namespace stackoverflow.Models.dao
 
         public Tag GetTag(string title)
         {
-            var idFinder = new MySqlCommand("select * from main_tag where title=" + title, DBConnection.Instance().MySqlConnection);
+            var idFinder = new MySqlCommand("select * from main_tag where title=\'" + title + "\'", DBConnection.Instance().MySqlConnection);
             var rd = idFinder.ExecuteReader();
             if (rd.Read())
             {
@@ -46,6 +46,7 @@ namespace stackoverflow.Models.dao
 
                 return ans;
             }
+            rd.Close();
             return null;
 
            
@@ -64,6 +65,7 @@ namespace stackoverflow.Models.dao
 
                 return ans;
             }
+            rd.Close();
             return null;
         }
 

@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Net;
 using System.Threading.Tasks;
 
 
@@ -16,32 +17,42 @@ namespace stackoverflow.Controllers
         private SessionDAO _sessionDao = SessionDAO.Instance();
         private UserDAO _userDao = UserDAO.Instance();
         private TagDAO _tagDao = TagDAO.Instance();
+        private TagQuestionDAO _tagQuestionDao = TagQuestionDAO.Instance();
 
         public IActionResult Index()
         {
-            var sessionId = HttpContext.Session.Id;
+            var sessionId = Logic.Logic.GetSessionId(Request);
             var title = Logic.Logic.GetValue(Request, "title");
             var content = Logic.Logic.GetValue(Request, "body");
             var tags = Logic.Logic.GetValue(Request, "tags");
-            var ts = tags.Split(' ');
+            
             var username = _sessionDao.GetUsername(sessionId);
             var user = (User)  _userDao.GetUserByUsername(username);
-
-            if (title != null && content != null)
+            if (user == null)
             {
-                var usr = _questionDao.CreateQuestion(title, content,user.Id);
-                //get questionid
+                return RedirectToAction("Index", "Login");
+            }
+            if (title != null && content != null && tags != null)
+            {
+                var ts = tags.Split(' ');
+                var questionId = _questionDao.CreateQuestion(title, content,user.Id);
+                
 
-                foreach(string tag in ts)
+                foreach (string tagtmp in ts)
                 {
 
-                    if (_tagDao.GetTag(tag) == null)
+                    if (_tagDao.GetTag(tagtmp) == null)
                     {
-                        _tagDao.CreatTag(tag);   
+                        //create tag
+                         _tagDao.CreatTag(tagtmp);
+                        
                     }
-
                     //get tagId
-                    //crate question tag
+                    var tag =  (Tag) _tagDao.GetTag(tagtmp);
+                    var tagId = tag.Id;
+
+                    //create question tag
+                    _tagQuestionDao.CreateTagQuestion(questionId, tagId);
 
                 }
             }

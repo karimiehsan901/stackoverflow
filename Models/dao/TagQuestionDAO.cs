@@ -39,17 +39,10 @@ namespace stackoverflow.Models.dao
             return ans;
         }
 
-        public int CreateTagQuestion(int questionId, int tagId)
+        public void CreateTagQuestion(int questionId, int tagId)
         {
-            var idFinder = new MySqlCommand("select id from main_question where =" + tagId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);
-            var rd = idFinder.ExecuteReader();
-            while (rd.Read())
-            {
-                var id = (int)rd["id"];
-                rd.Close();
-                return id;
-            }
-            return 0;
+            var idFinder = new MySqlCommand("insert into main_tagquestion (tag_id, question_id) values (" + tagId + "," + questionId + ")", DBConnection.Instance().MySqlConnection);
+            idFinder.ExecuteNonQuery();
         }
     }
 }

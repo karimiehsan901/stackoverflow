@@ -22,7 +22,7 @@ namespace stackoverflow.Controllers
             var usr = (User)   _userDao.GetUserByUsernameAndPassword(username, password);
             if(usr != null)
             {
-                _sessionDao.Login(HttpContext.Session.Id, username);
+                _sessionDao.Login(Logic.Logic.GetSessionId(Request), username);
                 return RedirectToAction("Index", "Home");
             }
             else if(Request.Method=="POST")
