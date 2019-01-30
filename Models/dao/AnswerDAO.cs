@@ -74,7 +74,7 @@ namespace stackoverflow.Models.dao
         {
             var hour = DateTime.Now.ToString("HH:m:s tt zzz");
             var day = DateTime.Now.ToString("yyyy MMMM dd");
-            var cmd = new MySqlCommand("insert into main_question (title, content, day, hour, user_id, question_id) values (\'" + title + "\', \'" + content
+            var cmd = new MySqlCommand("insert into main_answer (content, day, hour, user_id, question_id) values (\'" + content
                                        + "\', \'" + day + "\', \'" + hour + "\', \'" + userId + "\'," + questionId + ")", DBConnection.Instance().MySqlConnection);
             cmd.ExecuteNonQuery();
 

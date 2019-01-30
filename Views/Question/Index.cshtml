@@ -75,34 +75,42 @@
         @{ 
             foreach(var answer in (List<Dictionary<string, object>>)ViewData["ans"])
             {
-                <div class="col-lg-2 center-align">
-                    <span class="fa fa-chevron-up fa-3x"></span>
-                    <br />
-                    <div class="col-lg-12 question-likes">@answer["answerLikeCount"]</div>
-                    <br />
-                    <span class="fa fa-chevron-down fa-3x"></span>
-                </div>
-                <div class="col-lg-10">
-                    <div class="col-lg-12">
-                        @answer["answerContent"]
+                if (answer != null)
+                {
+                    <div class="col-lg-2 center-align">
+                        <span class="fa fa-chevron-up fa-3x"></span>
                         <br />
+                        <div class="col-lg-12 question-likes">@answer["answerLikeCount"]</div>
                         <br />
-                        <hr />
-                        @{ 
-                            foreach(var comment in (List<QuestionComment>)ViewData["answer_comments"])
-                            {
-                                <div class="comment">comment.Content</div>
-                            }
-                        }
+                        <span class="fa fa-chevron-down fa-3x"></span>
                     </div>
-                </div>
-
-                <div class="col-lg-12">
-                    <hr />
-                    <h3>Your Answer</h3>
-                    <textarea class="form-control" rows="10"></textarea>
-                    <button class="form-control">Submit</button>
-                </div>
+                    <div class="col-lg-10">
+                        <div class="col-lg-12">
+                            @answer["answerContent"]
+                            <br />
+                            <br />
+                            <hr />
+                            @{ 
+                                if (ViewData["answer_comments"] != null)
+                                {
+                                    foreach (var comment in (List<AnswerComment>)ViewData["answer_comments"])
+                                    {
+                                        <div class="comment">comment.Content</div>
+                                    }
+                                }
+                             }
+                        </div>
+                    </div>
+                 }
+                    @if (ViewData["user"] != null)
+                    {
+                        <div class="col-lg-12">
+                            <hr />
+                            <h3>Your Answer</h3>
+                            <textarea class="form-control" rows="10"></textarea>
+                            <button class="form-control">Submit</button>
+                        </div>
+                      }
             }
         }
     </div>

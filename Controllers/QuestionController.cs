@@ -57,37 +57,44 @@ namespace stackoverflow.Controllers
             var ans = new List<Dictionary<string, object>>();
             foreach (var answer in answers)
             {
-                var answerComments = (List<AnswerComment>)_answercommentDao.GetCommentsOfanswer(answer.Id);
-                var answerLikeCount = (int)_likeanswerDao.GetLikeCountAnswer(answer.Id);
-                /*ViewData["answerContent"] = answer.Content;
-                ViewData["answerDay"] = answer.Day;
-                ViewData["answerHour"] = answer.Hour;
-                ViewData["answerUserId"] = answer.UserId;
-                ViewData["answerquestionId"] = answer.QuestionId;
-                ViewData["answerLikeCount"] = answerLikeCount;
-                ViewData["answer_comments"] = answerComments;*/
-
-                var dic = new Dictionary<string, object>
+                if (answer != null)
                 {
-                    ["answerContent"] = answer.Content,
-                    ["answerDay"] = answer.Day,
-                    ["answerHour"] = answer.Hour,
-                    ["answerUserId"] = answer.UserId,
-                    ["answerquestionId"] = answer.QuestionId,
-                    ["answerLikeCount"] = answerLikeCount,
-                    ["answer_comments"] = answerComments
-                };
-                ans.Add(dic);
+                    var answerComments = (List<AnswerComment>)_answercommentDao.GetCommentsOfanswer(answer.Id);
+                    var answerLikeCount = (int)_likeanswerDao.GetLikeCountAnswer(answer.Id);
+                    /*ViewData["answerContent"] = answer.Content;
+                    ViewData["answerDay"] = answer.Day;
+                    ViewData["answerHour"] = answer.Hour;
+                    ViewData["answerUserId"] = answer.UserId;
+                    ViewData["answerquestionId"] = answer.QuestionId;
+                    ViewData["answerLikeCount"] = answerLikeCount;
+                    ViewData["answer_comments"] = answerComments;*/
+
+                    var dic = new Dictionary<string, object>
+                    {
+                        ["answerContent"] = answer.Content,
+                        ["answerDay"] = answer.Day,
+                        ["answerHour"] = answer.Hour,
+                        ["answerUserId"] = answer.UserId,
+                        ["answerquestionId"] = answer.QuestionId,
+                        ["answerLikeCount"] = answerLikeCount,
+                        ["answer_comments"] = answerComments
+                    };
+                    ans.Add(dic);
+                }
             }
             ViewData["ans"] = ans;
 
-            var sessionId = HttpContext.Session.Id;
+            var sessionId = Logic.Logic.GetSessionId(Request);
+            //var sessionId = HttpContext.Session.Id;
             var userName = (string)_sessionDao.GetUsername(sessionId);
             var user = (User)_userDao.GetUserByUsername(userName);
-            var content = Logic.Logic.GetValue(Request, "content");
-            var title = Logic.Logic.GetValue(Request, "title");
-            var createdanswer = (int)_answerDao.CreateAnswer(title, content, user.Id, question.Id); 
-
+            ViewData["user"] = user;
+            if(user != null)
+            {
+                var content = Logic.Logic.GetValue(Request, "content");
+                var title = Logic.Logic.GetValue(Request, "title");
+                var createdanswer = (int)_answerDao.CreateAnswer(title, content, user.Id, question.Id); 
+            }
             ViewData["id"] = sid;
             return View();
         }
