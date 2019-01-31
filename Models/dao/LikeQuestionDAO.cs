@@ -43,32 +43,21 @@ namespace stackoverflow.Models.dao
             return count;
         }
 
-        public LikeQuestion likeTheQuestion(int questionId, int userId)
+        public int likeTheQuestion(int questionId, int userId, bool isLike)
         {
-            var idFinder = new MySqlCommand("select id from main_question where question_id=" + questionId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);
-            var rd = idFinder.ExecuteReader();
-            LikeQuestion likeQuestion = null;
-            while (rd.Read())
-            {
-                var id = (int)rd["id"];
-                likeQuestion = new LikeQuestion(id, questionId, userId, true);
-            }
-            rd.Close();
-            return likeQuestion;
-        }
+            var cmd = new MySqlCommand("insert into main_question (question_id, user_id, is_like) values (\'" + questionId + "\', \'" + userId
+                                       + "\'," + isLike + ")", DBConnection.Instance().MySqlConnection);
+            cmd.ExecuteNonQuery();
 
-        public LikeQuestion disLikeTheQuestion(int questionId, int userId)
-        {
             var idFinder = new MySqlCommand("select id from main_question where question_id=" + questionId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);
             var rd = idFinder.ExecuteReader();
-            LikeQuestion likeQuestion = null;
             while (rd.Read())
             {
                 var id = (int)rd["id"];
-                likeQuestion = new LikeQuestion(id, questionId, userId, false);
+                rd.Close();
+                return id;
             }
-            rd.Close();
-            return likeQuestion;
+            return 0;
         }
     }
 }
