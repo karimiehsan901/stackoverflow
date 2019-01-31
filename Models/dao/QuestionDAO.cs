@@ -100,5 +100,25 @@ namespace stackoverflow.Models.dao
             rd.Close();
             return null;
         }
+
+        public List<Question> Search(string title)
+        {
+            var cmd = new MySqlCommand("select * from main_question where title like \'%" + title + "%\' limit 4", DBConnection.Instance().MySqlConnection);
+            var rd = cmd.ExecuteReader();
+            var ans = new List<Question>();
+            while (rd.Read())
+            {
+                var t = (string)rd["title"];
+                var id = (int)rd["id"];
+                var content = (string)rd["content"];
+                var day = (string)rd["day"];
+                var hour = (string)rd["hour"];
+                var userId = (int)rd["user_id"];
+                var question = new Question(id, content, day, hour, t, userId);
+                ans.Add(question);
+            }
+            rd.Close();
+            return ans;
+        }
     }
 }

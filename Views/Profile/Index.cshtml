@@ -21,22 +21,16 @@
         </ul>
         <div class="navbar-form navbar-left">
             <div class="input-group">
-                <input type="text" class="form-control" placeholder="Search">
+                <input type="text" class="form-control input-autocomplete" placeholder="Search">
+                <div class="autocomplete" style="position: absolute; background: #333;">
+                </div>
             </div>
         </div>
         <ul class="nav navbar-nav navbar-right">
-            @{
-                /*if (!(bool)ViewData["isLogin"])
-                {*/
-                    <li><a href="/SignUp/"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
-                    <li><a href="/Login/"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
-                //}
-                @*else
-                {
+            
                     <li><a href="/Profile/"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
                     <li><a href="/Logout/"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
-                }*@
-            }
+                
         </ul>
     </div>
 </nav>
