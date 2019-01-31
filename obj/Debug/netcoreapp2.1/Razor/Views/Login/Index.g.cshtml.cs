@@ -64,7 +64,7 @@ using stackoverflow.Models;
             WriteLiteral("<html>\r\n");
             EndContext();
             BeginContext(33, 293, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ca9ec59649694fd3a6b2c1f31d4da95c", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("head", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "847203160690461ab976868c4b5d8c6d", async() => {
                 BeginContext(39, 280, true);
                 WriteLiteral(@"
     <link rel=""stylesheet"" href=""https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css""/>
@@ -88,7 +88,7 @@ using stackoverflow.Models;
             WriteLiteral("\r\n");
             EndContext();
             BeginContext(328, 2406, false);
-            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "ac57145171a74c3cb5455dfe798eda02", async() => {
+            __tagHelperExecutionContext = __tagHelperScopeManager.Begin("body", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "31f07182adf34dd599d1d19a10edc835", async() => {
                 BeginContext(334, 763, true);
                 WriteLiteral(@"
 <nav class=""navbar navbar-inverse"">
@@ -140,7 +140,7 @@ using stackoverflow.Models;
                 WriteLiteral("        </ul>\r\n    </div>\r\n</nav>\r\n<div class=\"col-lg-1\">\r\n</div>\r\n\r\n<div class=\"col-lg-10\">\r\n    <h2 class=\"text-center\">\r\n        Login\r\n    </h2>\r\n    ");
                 EndContext();
                 BeginContext(1859, 634, false);
-                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "8221881cdf95477481bae2f462046cfa", async() => {
+                __tagHelperExecutionContext = __tagHelperScopeManager.Begin("form", global::Microsoft.AspNetCore.Razor.TagHelpers.TagMode.StartTagAndEndTag, "c0dfb84b346d47cbb0f8b4aea71fbf6e", async() => {
                     BeginContext(1898, 588, true);
                     WriteLiteral(@"
         <div class=""form-group"">

@@ -43,13 +43,26 @@ namespace stackoverflow.Models.dao
             return count;
         }
 
+        public bool beforeLikedByThisUser(int questionId, int userId)
+        {
+            var idFinder = new MySqlCommand("select id from main_likequestion where question_id=" + questionId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);
+            var rd = idFinder.ExecuteReader();
+            while (rd.Read())
+            {
+                if ((int)rd["user_id"] == userId)
+                    return true;
+            }
+            rd.Close();
+            return false;
+        }
+
         public int likeTheQuestion(int questionId, int userId, bool isLike)
         {
-            var cmd = new MySqlCommand("insert into main_question (question_id, user_id, is_like) values (\'" + questionId + "\', \'" + userId
+            var cmd = new MySqlCommand("insert into main_likequestion (question_id, user_id, is_like) values (\'" + questionId + "\', \'" + userId
                                        + "\'," + isLike + ")", DBConnection.Instance().MySqlConnection);
             cmd.ExecuteNonQuery();
 
-            var idFinder = new MySqlCommand("select id from main_question where question_id=" + questionId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);
+            var idFinder = new MySqlCommand("select id from main_likequestion where question_id=" + questionId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);
             var rd = idFinder.ExecuteReader();
             while (rd.Read())
             {
