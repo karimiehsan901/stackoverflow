@@ -11648,23 +11648,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Techno Service\\.nuget\\packages\\": {},
+    "C:\\Users\\novin\\.nuget\\packages\\": {},
     "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "D:\\FinalProject\\askew\\stackoverflow.csproj",
+      "projectUniqueName": "E:\\project_stack\\Stack\\stackoverflow.csproj",
       "projectName": "stackoverflow",
-      "projectPath": "D:\\FinalProject\\askew\\stackoverflow.csproj",
-      "packagesPath": "C:\\Users\\Techno Service\\.nuget\\packages\\",
-      "outputPath": "D:\\FinalProject\\askew\\obj\\",
+      "projectPath": "E:\\project_stack\\Stack\\stackoverflow.csproj",
+      "packagesPath": "C:\\Users\\novin\\.nuget\\packages\\",
+      "outputPath": "E:\\project_stack\\Stack\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
       ],
       "configFilePaths": [
-        "C:\\Users\\Techno Service\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\novin\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
