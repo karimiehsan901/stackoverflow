@@ -1,1 +1,123 @@
-﻿profile
+﻿@using stackoverflow.Models.db
+@{
+    Layout = "";
+}
+<html>
+<head>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="https://jqueryui.com/resources/demos/style.css">
+    <link rel="stylesheet" href="/css/site.css"/>
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">Stack Overflow</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active"><a href="#">Home</a></li>
+            <li><a href="/AddQuestion/">Ask Question</a></li>
+        </ul>
+        <div class="navbar-form navbar-left">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Search">
+            </div>
+        </div>
+        <ul class="nav navbar-nav navbar-right">
+            @{
+                /*if (!(bool)ViewData["isLogin"])
+                {*/
+                    <li><a href="/SignUp/"><span class="glyphicon glyphicon-user"></span>Sign Up</a></li>
+                    <li><a href="/Login/"><span class="glyphicon glyphicon-log-in"></span>Login</a></li>
+                //}
+                @*else
+                {
+                    <li><a href="/Profile/"><span class="glyphicon glyphicon-user"></span>Profile</a></li>
+                    <li><a href="/Logout/"><span class="glyphicon glyphicon-log-out"></span>Logout</a></li>
+                }*@
+            }
+        </ul>
+    </div>
+</nav>
+
+<div class="col-lg-1">
+</div>
+<div class="col-lg-10">
+    @{
+        var questions = (List<Question>) (((Dictionary<string, object>) ViewData["dataOfUser"])["questions"]);
+        var answers = (List<Answer>) (((Dictionary<string, object>) ViewData["dataOfUser"])["answers"]);
+        <h3>@questions.Count Questions</h3>
+        foreach (var dic in questions)
+        {
+            <div class="col-lg-12">
+            <hr/>
+            <div class="col-lg-1 question-card">
+                0 <br>
+                votes
+            </div>
+            <div class="col-lg-1 question-card">
+                0 <br>
+                answers
+            </div>
+            <div class="col-lg-1 question-card">
+                0 <br>
+                views
+            </div>
+                <div class="col-lg-9">
+                    <h3><a href="/Question/Index/@dic.Id" class="question-title">@dic.Title</a></h3>
+                    @*@{
+                    foreach (var tag in (List<Tag>)dic["tags"])
+                    {
+                        <span class="tag">@tag.Title</span>                        
+                    }
+                }*@
+                
+                </div>
+            </div>
+        }
+        
+        <div class="col-lg-12">
+            <br/>
+            <br/>
+            <br/>
+        </div>
+        <hr/>
+        <h3>@answers.Count answers</h3>
+        foreach (var answer in answers)
+        {
+            <div class="col-lg-12">
+                <hr/>
+                <div class="col-lg-1 question-card">
+                    0 <br>
+                    votes
+                </div>
+                <div class="col-lg-1 question-card">
+                    0 <br>
+                    answers
+                </div>
+                <div class="col-lg-1 question-card">
+                    0 <br>
+                    views
+                </div>
+                <div class="col-lg-9">
+                    <h3><a href="/Question/Index/@answer.QuestionId" class="question-title">@answer.Content</a></h3>
+                    @*@{
+                    foreach (var tag in (List<Tag>)dic["tags"])
+                    {
+                        <span class="tag">@tag.Title</span>                        
+                    }
+                }*@
+                
+                </div>
+            </div>
+        }
+    }
+</div>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="/js/site.js"></script>
+</body>
+</html>

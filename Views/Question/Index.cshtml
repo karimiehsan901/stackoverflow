@@ -82,51 +82,58 @@
             <br />
             <hr />
         </div>
-        @{ 
-            
-                foreach (var answer in (List<Dictionary<string, object>>)ViewData["ans"])
-                {
-                    <div class="col-lg-12">
-                        @{
-                            
-                                <div class="col-lg-2 center-align">
-                                    <span class="fa fa-chevron-up fa-3x"></span>
-                                    <br/>
-                                    <div class="col-lg-12 question-likes">@answer["answerLikeCount"]</div>
-                                    <br/>
-                                    <span class="fa fa-chevron-down fa-3x"></span>
-                                </div>
-                                <div class="col-lg-10">
-                                    <div class="col-lg-12">
-                                        @answer["answerContent"]
-                                        
-                                        @{
-                                            if (ViewData["answer_comments"] != null)
-                                            {
-                                                foreach (var comment in (List<AnswerComment>) ViewData["answer_comments"])
-                                                {
-                                                    <div class="comment">comment.Content</div>
-                                                }
-                                            }
+        @{
+
+            foreach (var answer in (List<Dictionary<string, object>>) ViewData["ans"])
+            {
+                <div class="col-lg-12">
+                    @{
+
+                        <div class="col-lg-2 center-align">
+                            <span class="fa fa-chevron-up fa-3x"></span>
+                            <br/>
+                            <div class="col-lg-12 question-likes">@answer["answerLikeCount"]</div>
+                            <br/>
+                            <span class="fa fa-chevron-down fa-3x"></span>
+                        </div>
+                        <div class="col-lg-10">
+                            <div class="col-lg-12">
+                                @answer["answerContent"]
+
+                                @{
+                                    if (ViewData["answer_comments"] != null)
+                                    {
+                                        foreach (var comment in (List<AnswerComment>) ViewData["answer_comments"])
+                                        {
+                                            <div class="comment">comment.Content</div>
                                         }
-                                    </div>
-                                </div>
-                                <br/>
-                                <br/>
-                                <hr/>
-                           
-                        }
-                    </div>
-                                    
+                                    }
                                 }
-                        <form class="col-lg-12" method="post">
-                                <hr />
-                                <h3>Your Answer</h3>
-                                <textarea class="form-control" rows="10" name="yourAnswer"></textarea>
-                            <div class="form_group">
-                                <input class="form-control" type="submit" />
                             </div>
-                        </form>
+                        </div>
+                        <br/>
+                        <br/>
+                        <hr/>
+
+                    }
+                </div>
+
+            }
+            
+            
+        @if (ViewData["user"] != null)
+        {
+            <form class="col-lg-12" method="post">
+                <hr/>
+                <h3>Your Answer</h3>
+                <textarea class="form-control" rows="10" name="yourAnswer"></textarea>
+                <div class="form_group">
+                    <input class="form-control" type="submit"/>
+                </div>
+            </form>
+        }
+    
+
         }
     </div>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
