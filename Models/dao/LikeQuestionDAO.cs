@@ -45,7 +45,7 @@ namespace stackoverflow.Models.dao
 
         public bool beforeLikedByThisUser(int questionId, int userId)
         {
-            var idFinder = new MySqlCommand("select id from main_likequestion where question_id=" + questionId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);
+            var idFinder = new MySqlCommand("select id from main_likequestion where question_id=" + questionId + "and user_id=" + userId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);
             var rd = idFinder.ExecuteReader();
             while (rd.Read())
             {

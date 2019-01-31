@@ -20,7 +20,7 @@ namespace stackoverflow.Controllers
             var _sessionId = Logic.Logic.GetSessionId(Request);
             var userName = (string)_sessionDao.GetUsername(_sessionId);
             var user = (User)_userDao.GetUserByUsername(userName);
-            if (question.UserId != user.Id && !(_likequestionDao.beforeLikedByThisUser(questionId, user.Id)))
+            if ((question.UserId != user.Id) && !(_likequestionDao.beforeLikedByThisUser(questionId, user.Id)))
             {
                 if (query == "1")
                 {
