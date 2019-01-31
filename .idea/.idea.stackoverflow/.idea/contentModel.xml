@@ -8,10 +8,13 @@
       <e p="Controllers" t="Include">
         <e p="AddQuestionController.cs" t="Include" />
         <e p="HomeController.cs" t="Include" />
+        <e p="LikeAnswerController.cs" t="Include" />
+        <e p="LikeQuestionController.cs" t="Include" />
         <e p="LoginController.cs" t="Include" />
         <e p="LogoutController.cs" t="Include" />
         <e p="ProfileController.cs" t="Include" />
         <e p="QuestionController.cs" t="Include" />
+        <e p="SearchController.cs" t="Include" />
         <e p="SignUpController.cs" t="Include" />
       </e>
       <e p="Logic" t="Include">

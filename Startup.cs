@@ -75,7 +75,15 @@ namespace stackoverflow
                 routes.MapRoute(
                     name: "Logout",
                     template: "{controller=Logout}/{action=Index}");
-
+                routes.MapRoute(
+                    name: "LikeQuestion",
+                    template: "{controller=LikeQuestion}/{action=Index}");
+                routes.MapRoute(
+                    name: "LikeAnswer",
+                    template: "{controller=LikeAnswer}/{action=Index}");
+                routes.MapRoute(
+                    name: "Search",
+                    template: "{controller=Search}/{action=Index}");
 
             });
         }
