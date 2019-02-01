@@ -4,20 +4,8 @@
     "\\Controllers",
     "\\Logic",
     "\\Models",
-    "\\Models\\dao",
-<<<<<<< HEAD
-    "\\Views",
-    "\\Views\\Home"
+    "\\Models\\db"
   ],
-  "SelectedNode": "\\Models\\dao\\SessionDAO.cs",
-=======
-    "\\Models\\db",
-    "\\Views",
-    "\\Views\\AddQuestion",
-    "\\Views\\Login",
-    "\\Views\\Profile"
-  ],
-  "SelectedNode": "\\Models\\db\\TagQuestion.cs",
->>>>>>> 441640fae7fb933f3ac7c24e8d6e8c2c531958ed
+  "SelectedNode": "\\Models\\db\\LikeQuestion.cs",
   "PreviewInSolutionExplorer": false
 }

@@ -12131,23 +12131,41 @@
     ]
   },
   "packageFolders": {
+<<<<<<< HEAD
     "/home/ehsan/.nuget/packages/": {},
     "/usr/share/dotnet/sdk/NuGetFallbackFolder": {}
+=======
+    "C:\\Users\\novin\\.nuget\\packages\\": {},
+    "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder": {}
+>>>>>>> 73641781b2517815db4ef8b1de3735bc5a3d9f3d
   },
   "project": {
     "version": "1.0.0",
     "restore": {
+<<<<<<< HEAD
       "projectUniqueName": "/home/ehsan/dotnet/stackoverflow/stackoverflow.csproj",
       "projectName": "stackoverflow",
       "projectPath": "/home/ehsan/dotnet/stackoverflow/stackoverflow.csproj",
       "packagesPath": "/home/ehsan/.nuget/packages/",
       "outputPath": "/home/ehsan/dotnet/stackoverflow/obj/",
+=======
+      "projectUniqueName": "E:\\project_stack\\Stack\\stackoverflow.csproj",
+      "projectName": "stackoverflow",
+      "projectPath": "E:\\project_stack\\Stack\\stackoverflow.csproj",
+      "packagesPath": "C:\\Users\\novin\\.nuget\\packages\\",
+      "outputPath": "E:\\project_stack\\Stack\\obj\\",
+>>>>>>> 73641781b2517815db4ef8b1de3735bc5a3d9f3d
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "/usr/share/dotnet/sdk/NuGetFallbackFolder"
       ],
       "configFilePaths": [
+<<<<<<< HEAD
         "/home/ehsan/.config/NuGet/NuGet.Config"
+=======
+        "C:\\Users\\novin\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+>>>>>>> 73641781b2517815db4ef8b1de3735bc5a3d9f3d
       ],
       "originalTargetFrameworks": [
         "netcoreapp2.2"

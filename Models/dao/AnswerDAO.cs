@@ -70,6 +70,25 @@ namespace stackoverflow.Models.dao
             return ans;
         }
 
+        public Answer GetAnswerById(int id)
+        {
+            var cmd = new MySqlCommand("select * from main_answer where id=" + id, DBConnection.Instance().MySqlConnection);
+            var rd = cmd.ExecuteReader();
+            if (rd.Read())
+            {
+                var content = (string)rd["content"];
+                var day = (string)rd["day"];
+                var hour = (string)rd["hour"];
+                var questionId = (int)rd["question_id"];
+                var userId = (int)rd["user_id"];
+                var answer = new Answer(id, content, day, hour, questionId, userId);
+                rd.Close();
+                return answer;
+            }
+            rd.Close();
+            return null;
+        }
+
         public int CreateAnswer(string content, int userId, int questionId)
         {
             var hour = DateTime.Now.ToString("HH:m:s tt zzz");

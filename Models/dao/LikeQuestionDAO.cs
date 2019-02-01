@@ -43,32 +43,34 @@ namespace stackoverflow.Models.dao
             return count;
         }
 
-        public LikeQuestion likeTheQuestion(int questionId, int userId)
+        public bool beforeLikedByThisUser(int questionId, int userId)
         {
-            var idFinder = new MySqlCommand("select id from main_question where question_id=" + questionId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);
+            var idFinder = new MySqlCommand("select id from main_likequestion where question_id=" + questionId + "and user_id=" + userId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);
             var rd = idFinder.ExecuteReader();
-            LikeQuestion likeQuestion = null;
             while (rd.Read())
             {
-                var id = (int)rd["id"];
-                likeQuestion = new LikeQuestion(id, questionId, userId, true);
+                if ((int)rd["user_id"] == userId)
+                    return true;
             }
             rd.Close();
-            return likeQuestion;
+            return false;
         }
 
-        public LikeQuestion disLikeTheQuestion(int questionId, int userId)
+        public int likeTheQuestion(int questionId, int userId, bool isLike)
         {
-            var idFinder = new MySqlCommand("select id from main_question where question_id=" + questionId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);
+            var cmd = new MySqlCommand("insert into main_likequestion (question_id, user_id, is_like) values (\'" + questionId + "\', \'" + userId
+                                       + "\'," + isLike + ")", DBConnection.Instance().MySqlConnection);
+            cmd.ExecuteNonQuery();
+
+            var idFinder = new MySqlCommand("select id from main_likequestion where question_id=" + questionId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);
             var rd = idFinder.ExecuteReader();
-            LikeQuestion likeQuestion = null;
             while (rd.Read())
             {
                 var id = (int)rd["id"];
-                likeQuestion = new LikeQuestion(id, questionId, userId, false);
+                rd.Close();
+                return id;
             }
-            rd.Close();
-            return likeQuestion;
+            return 0;
         }
     }
 }

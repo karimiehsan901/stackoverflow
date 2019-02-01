@@ -25,6 +25,8 @@ namespace stackoverflow.Models.dao
 
         }
 
+
+
         public int PlusLikesAnswer(int answerId,int userId)
         {
             int count = 0;
@@ -56,6 +58,38 @@ namespace stackoverflow.Models.dao
             rd2.Close();
 
             return count;
+        }
+
+        public bool beforeLikedByThisUser(int answerId, int userId)
+        {
+            var idFinder = new MySqlCommand
+                ("select id from main_likeanswer where answer_id=" + answerId + " order by id desc limit 1",
+                DBConnection.Instance().MySqlConnection);
+            var rd = idFinder.ExecuteReader();
+            while (rd.Read())
+            {
+                if ((int)rd["user_id"] == userId)
+                    return true;
+            }
+            rd.Close();
+            return false;
+        }
+
+        public int likeTheAnswer(int answerId, int userId, bool isLike)
+        {
+            var cmd = new MySqlCommand("insert into main_likeanswer (answer_id, user_id, is_like) values (\'" + answerId + "\', \'" + userId
+                                       + "\'," + isLike + ")", DBConnection.Instance().MySqlConnection);
+            cmd.ExecuteNonQuery();
+
+            var idFinder = new MySqlCommand("select id from main_likeanswer where answer_id=" + answerId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);
+            var rd = idFinder.ExecuteReader();
+            while (rd.Read())
+            {
+                var id = (int)rd["id"];
+                rd.Close();
+                return id;
+            }
+            return 0;
         }
 
 

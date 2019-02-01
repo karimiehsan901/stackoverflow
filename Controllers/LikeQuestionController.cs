@@ -14,20 +14,24 @@ namespace stackoverflow.Controllers
         public IActionResult Index()
         {
             var query = Logic.Logic.GetValue(Request, "islike", "");
-            var questionId = int.Parse(Logic.Logic.GetValue(Request, "uestionId", ""));
-            LikeQuestion likeQuestions = null;
+            var questionId = int.Parse(Logic.Logic.GetValue(Request, "questionId", ""));
+            var question = (Question)_questionDao.GetQuestionById(questionId);
+            int id = 0;
             var _sessionId = Logic.Logic.GetSessionId(Request);
             var userName = (string)_sessionDao.GetUsername(_sessionId);
             var user = (User)_userDao.GetUserByUsername(userName);
-            if (query == "1")
+            if ((question.UserId != user.Id) && !(_likequestionDao.beforeLikedByThisUser(questionId, user.Id)))
             {
-                likeQuestions = _likequestionDao.likeTheQuestion(questionId, user.Id);
+                if (query == "1")
+                {
+                    id = _likequestionDao.likeTheQuestion(questionId, user.Id, true);
+                }
+                else if (query == "0")
+                {
+                    id = _likequestionDao.likeTheQuestion(questionId, user.Id, false);
+                }
             }
-            else if(query == "0")
-            {
-                likeQuestions = _likequestionDao.disLikeTheQuestion(questionId, user.Id);
-            }
-            var result = new Dictionary<string, object> {["id"] = questionId, ["islike"] = query, ["userId"] = user.Id};
+            var result = new Dictionary<string, object> {["id"] = id, ["questionId"] = questionId, ["islike"] = query, ["userId"] = user.Id};
             return Json(result);
         }
     }
