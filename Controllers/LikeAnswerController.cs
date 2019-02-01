@@ -13,6 +13,8 @@ namespace stackoverflow.Controllers
         private SessionDAO _sessionDAO = SessionDAO.Instance();
         public IActionResult Index()
         {
+            string error = null;
+            string message = null;
             var query = Logic.Logic.GetValue(Request, "islike", "");
             var answerId = int.Parse(Logic.Logic.GetValue(Request, "answerId", ""));
             var sessionId = Logic.Logic.GetSessionId(Request);
@@ -21,18 +23,36 @@ namespace stackoverflow.Controllers
             int id = 0;
             var userName = (string)_sessionDAO.GetUsername(sessionId);
             var user = (User)_userDAO.GetUserByUsername(userName);
-            if ((answer.UserId != user.Id) && !(_likeAnswerDAO.beforeLikedByThisUser(answerId, user.Id)))
+            if (user != null)
             {
-                if (query == "1")
+                if ((answer.UserId != user.Id) && !(_likeAnswerDAO.beforeLikedByThisUser(answerId, user.Id)))
                 {
-                    id = _likeAnswerDAO.likeTheAnswer(answerId, user.Id, true);
-              }
-                else if (query == "0")
+                    if (query == "1")
+                    {
+                        message = "liked";
+                        id = _likeAnswerDAO.likeTheAnswer(answerId, user.Id, true);
+                    }
+                    else if (query == "0")
+                    {
+                        message = "disliked";
+                        id = _likeAnswerDAO.likeTheAnswer(answerId, user.Id, false);
+                    }
+                    else
+                    {
+                        error = "query is wrong";
+                    }
+                }
+                else
                 {
-                    id = _likeAnswerDAO.likeTheAnswer(answerId, user.Id, false);
+                    error = "you cannot like this";
                 }
             }
-            var result = new Dictionary<string, object> { ["id"] = id, ["answerId"] = answerId, ["islike"] = query, ["userId"] = user.Id };
+            else
+            {
+                error = "you are not login";
+            }
+
+            var result = new Dictionary<string, object> { ["message"] = message, ["error"] = error};
             return Json(result);
         }
     }

@@ -1,3 +1,5 @@
 e608a2a8-d83f-a5cf-ab6f-3fa2b22212ca
 e608a2a8-d83f-a5cf-ab6f-3fa2b22212ca
 e608a2a8-d83f-a5cf-ab6f-3fa2b22212ca
+insert into main_likequestion (question_id, user_id, is_like) values ('6', '2',True)
+insert into main_likequestion (question_id, user_id, is_like) values ('9', '2',False)

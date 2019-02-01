@@ -45,21 +45,28 @@ namespace stackoverflow.Models.dao
 
         public bool beforeLikedByThisUser(int questionId, int userId)
         {
-            var idFinder = new MySqlCommand("select id from main_likequestion where question_id=" + questionId + "and user_id=" + userId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);
+            var idFinder = new MySqlCommand("select id from main_likequestion where question_id=" + questionId + " and user_id=" + userId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);
             var rd = idFinder.ExecuteReader();
+            var con = false;
             while (rd.Read())
             {
-                if ((int)rd["user_id"] == userId)
-                    return true;
+                if ((int) rd["user_id"] == userId)
+                {
+                    con = true;
+                    break;
+                }
+
             }
             rd.Close();
-            return false;
+            return con;
         }
 
         public int likeTheQuestion(int questionId, int userId, bool isLike)
         {
-            var cmd = new MySqlCommand("insert into main_likequestion (question_id, user_id, is_like) values (\'" + questionId + "\', \'" + userId
-                                       + "\'," + isLike + ")", DBConnection.Instance().MySqlConnection);
+            var query = "insert into main_likequestion (question_id, user_id, is_like) values (\'" + questionId +
+                        "\', \'" + userId
+                        + "\'," + isLike + ")";
+            var cmd = new MySqlCommand(query, DBConnection.Instance().MySqlConnection);
             cmd.ExecuteNonQuery();
 
             var idFinder = new MySqlCommand("select id from main_likequestion where question_id=" + questionId + " order by id desc limit 1", DBConnection.Instance().MySqlConnection);

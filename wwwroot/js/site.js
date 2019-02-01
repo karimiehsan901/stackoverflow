@@ -16,7 +16,82 @@ $(".navbar-form").keyup(function() {
         a.html(s);
     })
 });
-
+$(".question-like").on("click", function () {
+   var element = $(this).parent();
+   var thisElem = $(this);
+   var qId = element.attr("data-question-id"); 
+   $.post("/LikeQuestion/", {
+       islike: "1",
+       questionId: qId
+   }).done(function (data) {
+       if (data.message != null){
+           var elem = element.find("div");
+           var likeCount = elem.text();
+           likeCount++;
+           elem.text(likeCount);
+       } 
+       else {
+           alert(data.error);
+       }
+   });
+});
+$(".question-dislike").on("click", function () {
+    var element = $(this).parent();
+    var thisElem = $(this);
+    var qId = element.attr("data-question-id");
+    $.post("/LikeQuestion/", {
+        islike: "0",
+        questionId: qId
+    }).done(function (data) {
+        if (data.message != null){
+            var elem = element.find("div");
+            var likeCount = elem.text();
+            likeCount--;
+            elem.text(likeCount);
+        }
+        else {
+            alert(data.error);
+        }
+    });
+});
+$(".answer-like").on("click", function () {
+    var element = $(this).parent();
+    var thisElem = $(this);
+    var qId = element.attr("data-answer-id");
+    $.post("/LikeAnswer/", {
+        islike: "1",
+        answerId: qId
+    }).done(function (data) {
+        if (data.message != null){
+            var elem = element.find("div");
+            var likeCount = elem.text();
+            likeCount++;
+            elem.text(likeCount);
+        }
+        else {
+            alert(data.error);
+        }
+    });
+});
+$(".answer-dislike").on("click", function () {
+    var element = $(this).parent();
+    var thisElem = $(this);
+    var qId = element.attr("data-answer-id");
+    $.post("/LikeAnswer/", {
+        islike: "0",
+        answerId: qId
+    }).done(function (data) {
+        if (data.message != null){
+            var elem = element.find("div");
+            var likeCount = elem.text();
+            likeCount--;
+            elem.text(likeCount);
+        }
+        else {
+            alert(data.error);
+        }
+    });
+});
 var autocomplete = $(".autocomplete");
 var input = $(".input-autocomplete");
 autocomplete.width(input.width());

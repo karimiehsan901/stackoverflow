@@ -100,6 +100,7 @@
       </e>
       <e p="packages" t="ExcludeRecursive" />
       <e p="stackoverflow.csproj" t="IncludeRecursive" />
+      <e p="stackoverflow.sql" t="Include" />
       <e p="wwwroot" t="Include">
         <e p="css" t="Include">
           <e p="site.css" t="Include" />

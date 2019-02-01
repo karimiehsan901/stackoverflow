@@ -52,6 +52,7 @@ namespace stackoverflow.Controllers
             ViewData["questionDay"] = question.Day;
             ViewData["questionHour"] = question.Hour;
             ViewData["questionUserId"] = question.UserId;
+            ViewData["questionId"] = question.Id;
             ViewData["questionLikeCount"] = questionLikeCount;
             ViewData["tags"] = tags;
             ViewData["answers"] = answers;
@@ -71,6 +72,7 @@ namespace stackoverflow.Controllers
                             ["answerDay"] = answer.Day,
                             ["answerHour"] = answer.Hour,
                             ["answerUserId"] = answer.UserId,
+                            ["answerId"] = answer.Id,
                             ["answerquestionId"] = answer.QuestionId,
                             ["answerLikeCount"] = answerLikeCount,
                             ["answer_comments"] = answerComments
