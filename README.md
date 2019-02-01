@@ -12,3 +12,5 @@ restore the stackoverflow.sql to your mysql
 edit connection_string.txt to your mysql authentication information
 
 run the project
+
+https://github.com/karimiehsan901/stackoverflow
